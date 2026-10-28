@@ -82,6 +82,6 @@
     "prepack": "node -e \"require('fs').copyFileSync('../../README.md','README.md')\""
   },
   "bin": {
-    "foldjs": "./bin/foldjs.js"
+    "foldjs": "bin/foldjs.js"
   }
 }
