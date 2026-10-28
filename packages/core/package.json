@@ -1,6 +1,6 @@
 {
   "name": "foldjs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Make any web app foldable-ready. Framework-agnostic core, CSS layer, Web Components and a built-in foldable simulator.",
   "license": "MIT",
   "author": "christophe77",
@@ -9,7 +9,7 @@
     "url": "git+https://github.com/christophe77/foldjs.git",
     "directory": "packages/core"
   },
-  "homepage": "https://github.com/christophe77/foldjs#readme",
+  "homepage": "https://christophe77.github.io/foldjs/",
   "bugs": "https://github.com/christophe77/foldjs/issues",
   "type": "module",
   "sideEffects": [

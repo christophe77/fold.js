@@ -1,6 +1,6 @@
 {
   "name": "@foldjs/vue",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Vue 3 bindings for Fold.js: useFold(), <TwoPane>, <FoldWhen>, <FoldDevtools>.",
   "license": "MIT",
   "author": "christophe77",
@@ -9,7 +9,7 @@
     "url": "git+https://github.com/christophe77/foldjs.git",
     "directory": "packages/vue"
   },
-  "homepage": "https://github.com/christophe77/foldjs#readme",
+  "homepage": "https://christophe77.github.io/foldjs/",
   "bugs": "https://github.com/christophe77/foldjs/issues",
   "type": "module",
   "main": "./dist/index.cjs",
