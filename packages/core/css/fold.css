@@ -1,5 +1,5 @@
 /*
- * foldjs/css — foldable layouts without writing JavaScript.
+ * foldjs/css: foldable layouts without writing JavaScript.
  *
  * Works natively on foldables through CSS Viewport Segments, and with the
  * simulator / any browser once `init()` from "foldjs" has run (it sets

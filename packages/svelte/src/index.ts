@@ -23,7 +23,7 @@ export function twoPane(node: HTMLElement, options: TwoPaneOptions = {}) {
   return bindTwoPane(node, options);
 }
 
-/** <div use:foldWhen={"tabletop"}>…</div> — hidden unless the posture matches. */
+/** <div use:foldWhen={"tabletop"}>…</div>: hidden unless the posture matches. */
 export function foldWhen(node: HTMLElement, posture: Posture | Posture[]) {
   let wanted = posture;
   const paint = () => {

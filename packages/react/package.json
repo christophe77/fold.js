@@ -1,7 +1,7 @@
 {
   "name": "@foldjs/react",
   "version": "0.1.1",
-  "description": "React bindings for Fold.js: useFold(), <TwoPane>, <FoldWhen>, <FoldDevtools>.",
+  "description": "React hooks and components for foldable phones: useFold(), <TwoPane>, <FoldWhen> and a built-in foldable simulator. Works with Next.js.",
   "license": "MIT",
   "author": "christophe77",
   "repository": {
@@ -27,10 +27,26 @@
   ],
   "sideEffects": false,
   "keywords": [
-    "foldable",
     "react",
+    "react-hooks",
+    "react-component",
+    "nextjs",
+    "hooks",
+    "foldable",
+    "foldable-phone",
+    "foldables",
     "dual-screen",
     "hinge",
+    "viewport-segments",
+    "device-posture",
+    "galaxy-fold",
+    "pixel-fold",
+    "surface-duo",
+    "two-pane",
+    "responsive",
+    "responsive-design",
+    "layout",
+    "tabletop-mode",
     "foldjs"
   ],
   "peerDependencies": {
@@ -38,7 +54,7 @@
     "react": ">=18"
   },
   "scripts": {
-    "build": "tsup src/index.tsx --format esm,cjs --dts --clean --external react --external foldjs",
+    "build": "tsup",
     "prepack": "node -e \"require('fs').copyFileSync('../../README.md','README.md')\""
   }
 }

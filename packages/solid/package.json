@@ -1,7 +1,7 @@
 {
   "name": "@foldjs/solid",
   "version": "0.1.1",
-  "description": "SolidJS bindings for Fold.js: createFold() and a use:twoPane directive.",
+  "description": "SolidJS primitives for foldable phones: createFold() signal, use:twoPane directive and a built-in foldable simulator.",
   "license": "MIT",
   "author": "christophe77",
   "repository": {
@@ -28,11 +28,26 @@
   ],
   "sideEffects": false,
   "keywords": [
-    "foldable",
     "solid",
     "solidjs",
+    "solid-js",
+    "signals",
+    "directive",
+    "foldable",
+    "foldable-phone",
+    "foldables",
     "dual-screen",
     "hinge",
+    "viewport-segments",
+    "device-posture",
+    "galaxy-fold",
+    "pixel-fold",
+    "surface-duo",
+    "two-pane",
+    "responsive",
+    "responsive-design",
+    "layout",
+    "tabletop-mode",
     "foldjs"
   ],
   "peerDependencies": {

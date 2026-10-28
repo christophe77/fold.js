@@ -33,10 +33,10 @@ export function App() {
 
   const header = (
     <header className="top">
-      <div className="brand">
+      <h1 className="brand">
         <span className="logo" aria-hidden="true">▯▯</span>
         <span>fold<span className="dot">.js</span></span>
-      </div>
+      </h1>
       <nav className="tabs" aria-label="Demos">
         {SCENES.map((s) => (
           <button key={s.id} aria-pressed={scene === s.id} onClick={() => setScene(s.id)}>{s.label}</button>

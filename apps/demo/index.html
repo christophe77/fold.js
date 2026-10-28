@@ -2,12 +2,130 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fold.js — make any web app foldable-ready</title>
-    <meta name="description" content="Framework-agnostic toolkit for foldable phones: hooks, two-pane layouts, Web Components and a built-in foldable simulator." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>fold.js · Foldable phone layouts for React, Vue, Svelte and the web</title>
+    <meta name="description" content="fold.js is an open-source JavaScript library that makes web apps work on foldable phones (Galaxy Z Fold, Pixel Fold, Surface Duo). Detect the hinge and posture, build two-pane layouts, and test with a built-in simulator. React, Vue, Svelte, Solid, Web Components." />
+    <meta name="keywords" content="foldable, foldable phone, web, javascript, react, vue, svelte, hinge, dual screen, viewport segments, device posture, galaxy fold, pixel fold, two-pane layout" />
+    <meta name="author" content="christophe77" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://christophe77.github.io/foldjs/" />
+    <meta name="theme-color" content="#0f0f13" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="alternate" type="text/markdown" title="llms.txt" href="llms.txt" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="fold.js" />
+    <meta property="og:title" content="fold.js · Make any web app foldable-ready" />
+    <meta property="og:description" content="Hinge-aware layouts for foldable phones in React, Vue, Svelte, Solid and plain HTML. About 2 kB, with a built-in foldable simulator." />
+    <meta property="og:url" content="https://christophe77.github.io/foldjs/" />
+    <meta property="og:image" content="https://christophe77.github.io/foldjs/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="fold.js: a web app split into two panes around the hinge of a foldable phone" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="fold.js · Make any web app foldable-ready" />
+    <meta name="twitter:description" content="Hinge-aware layouts for foldable phones in React, Vue, Svelte, Solid and plain HTML, with a built-in simulator." />
+    <meta name="twitter:image" content="https://christophe77.github.io/foldjs/og.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "SoftwareSourceCode",
+            "@id": "https://christophe77.github.io/foldjs/#software",
+            "name": "fold.js",
+            "alternateName": "foldjs",
+            "description": "Open-source JavaScript library that makes web apps work on foldable phones: hinge and posture detection, two-pane layouts and a built-in foldable simulator, for React, Vue, Svelte, Solid and Web Components.",
+            "url": "https://christophe77.github.io/foldjs/",
+            "codeRepository": "https://github.com/christophe77/foldjs",
+            "programmingLanguage": ["TypeScript", "JavaScript", "CSS"],
+            "runtimePlatform": "Web browser",
+            "license": "https://opensource.org/licenses/MIT",
+            "author": { "@type": "Person", "name": "christophe77", "url": "https://github.com/christophe77" },
+            "keywords": "foldable, foldable phone, hinge, dual screen, viewport segments, device posture, react, vue, svelte, solid, web components",
+            "sameAs": ["https://www.npmjs.com/package/foldjs", "https://github.com/christophe77/foldjs"]
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "How do I detect a foldable phone in JavaScript?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Use getFold() from the foldjs package, or useFold() in React and Vue. It returns isSpanned, the posture (flat, book, tabletop or folded) and the hinge rectangle in CSS pixels, based on the Viewport Segments and Device Posture web APIs." }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I keep content away from the hinge of a foldable phone?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Use a two-pane layout: <TwoPane> in React or Vue, use:twoPane in Svelte and Solid, <fold-two-pane> as a Web Component, or the fold-two-pane CSS class. Each pane is placed on its own side of the hinge." }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I test foldable layouts without a foldable device?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. fold.js includes a simulator (FoldDevtools or mountDevtools) that fakes book and tabletop postures with a visible hinge on any desktop browser. Alt+Shift+F cycles postures." }
+              },
+              {
+                "@type": "Question",
+                "name": "What is the difference between book and tabletop posture?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Book posture has a vertical hinge with two screens side by side, ideal for list and detail. Tabletop posture has a horizontal hinge like a half-open laptop, ideal for video on top and controls at the bottom." }
+              },
+              {
+                "@type": "Question",
+                "name": "Which frameworks does fold.js support?",
+                "acceptedAnswer": { "@type": "Answer", "text": "React (including Next.js), Vue (including Nuxt), Svelte (including SvelteKit) and Solid through dedicated adapters, plus Angular, Astro, Lit, htmx and plain HTML through Web Components and a CSS-only layer." }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+
+    <script>document.documentElement.classList.add("js");</script>
+    <style>
+      .js #about { display: none; }
+      #about { max-width: 760px; margin: 0 auto; padding: 32px 16px; font: 16px/1.6 system-ui, sans-serif; color: #f1f0f5; background: #0f0f13; }
+      #about a { color: #8c80ff; }
+      #about pre { background: #18181f; padding: 12px; border-radius: 8px; overflow-x: auto; }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Static content for crawlers and AI assistants that do not run JavaScript. The app replaces it on load. -->
+      <main id="about">
+        <h1>fold.js: foldable phone support for React, Vue, Svelte and the web</h1>
+        <p><strong>fold.js is an open-source JavaScript library that makes web apps work properly on foldable phones</strong> such as the Samsung Galaxy Z Fold, Google Pixel Fold, Honor Magic V or Microsoft Surface Duo. It detects the hinge and the device posture (flat, book, tabletop) and provides two-pane layouts that never put content under the hinge. It works with React, Vue, Svelte, Solid, Angular, Astro or plain HTML, weighs about 2 kB and includes a built-in foldable simulator.</p>
+
+        <h2>Features</h2>
+        <ul>
+          <li>Two-pane layouts: each pane on its own side of the hinge, stacked on regular phones</li>
+          <li>Posture detection: flat, book (vertical hinge), tabletop (horizontal hinge), folded</li>
+          <li>Hinge geometry in JavaScript and as CSS variables</li>
+          <li>Built-in foldable simulator for desktop browsers (Alt+Shift+F)</li>
+          <li>Adapters for React, Vue, Svelte and Solid, Web Components and a CSS-only layer</li>
+          <li>About 2 kB min+gzip, zero dependencies, SSR-safe, TypeScript</li>
+        </ul>
+
+        <h2>Install</h2>
+        <pre><code>npm i foldjs @foldjs/react</code></pre>
+        <pre><code>import { TwoPane, useFold } from "@foldjs/react";
+
+&lt;TwoPane primary={&lt;MailList /&gt;} secondary={&lt;MailDetail /&gt;} /&gt;</code></pre>
+
+        <h2>FAQ</h2>
+        <h3>How do I detect a foldable phone in JavaScript?</h3>
+        <p>Use <code>getFold()</code> from <code>foldjs</code>, or <code>useFold()</code> in React and Vue. It returns whether the screen is split, the posture and the hinge rectangle, based on the Viewport Segments and Device Posture web APIs.</p>
+        <h3>Can I test foldable layouts without a device?</h3>
+        <p>Yes. The built-in simulator fakes book and tabletop postures with a visible hinge on any desktop browser.</p>
+        <h3>What is the difference between book and tabletop posture?</h3>
+        <p>Book: vertical hinge, two screens side by side, ideal for list and detail. Tabletop: horizontal hinge like a half-open laptop, ideal for video on top and controls at the bottom.</p>
+
+        <p>
+          <a href="https://github.com/christophe77/foldjs">Source code on GitHub</a> ·
+          <a href="https://www.npmjs.com/package/foldjs">foldjs on npm</a> ·
+          <a href="llms.txt">llms.txt</a>
+        </p>
+      </main>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
