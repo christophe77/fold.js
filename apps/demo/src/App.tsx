@@ -121,7 +121,7 @@ export function App() {
                 <code>npm i foldjs</code>
                 <a href="study.html">Study: 94% of sites fail</a>
                 <a href="legacy.html">Fix an existing site</a>
-                <a href="https://github.com/christophe77/foldjs">GitHub</a>
+                <a href="https://github.com/christophe77/fold.js">GitHub</a>
                 <a href="https://www.npmjs.com/package/foldjs">npm</a>
               </p>
             </aside>

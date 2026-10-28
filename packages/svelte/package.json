@@ -1,16 +1,16 @@
 {
   "name": "@foldjs/svelte",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Svelte store and actions for foldable phones: $fold, use:twoPane, use:foldWhen and a built-in foldable simulator. Works with SvelteKit.",
   "license": "MIT",
   "author": "christophe77",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/christophe77/foldjs.git",
+    "url": "git+https://github.com/christophe77/fold.js.git",
     "directory": "packages/svelte"
   },
-  "homepage": "https://christophe77.github.io/foldjs/",
-  "bugs": "https://github.com/christophe77/foldjs/issues",
+  "homepage": "https://christophe77.github.io/fold.js/",
+  "bugs": "https://github.com/christophe77/fold.js/issues",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",

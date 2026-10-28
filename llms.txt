@@ -35,7 +35,7 @@ Automatic, reversible fixes on foldables: open modals move to one screen, fixed 
 
 ## Study: popular websites on foldable phones (October 2026)
 
-fold.js audited 79 of the most visited websites on a Samsung Galaxy Z Fold: 94% split a button, link or form field across the hinge (including Google's search box), 70% are not foldable-ready (score below 90/100), the average score in book posture is 72/100, and 65% showed a cookie banner sitting on the hinge. Full results: https://christophe77.github.io/foldjs/study.html (data: https://christophe77.github.io/foldjs/study/data.json).
+fold.js audited 79 of the most visited websites on a Samsung Galaxy Z Fold: 94% split a button, link or form field across the hinge (including Google's search box), 70% are not foldable-ready (score below 90/100), the average score in book posture is 72/100, and 65% showed a cookie banner sitting on the hinge. Full results: https://christophe77.github.io/fold.js/study.html (data: https://christophe77.github.io/fold.js/study/data.json).
 
 ## Usage
 
@@ -82,11 +82,11 @@ fold.js replaces Microsoft's archived `react-foldable` for the web; it does not 
 
 ## Links
 
-- [Live demo with simulator](https://christophe77.github.io/foldjs/)
-- [Study: 94% of popular websites split a button across the hinge](https://christophe77.github.io/foldjs/study.html)
-- [foldjs/auto on a typical mobile site](https://christophe77.github.io/foldjs/legacy.html)
+- [Live demo with simulator](https://christophe77.github.io/fold.js/)
+- [Study: 94% of popular websites split a button across the hinge](https://christophe77.github.io/fold.js/study.html)
+- [foldjs/auto on a typical mobile site](https://christophe77.github.io/fold.js/legacy.html)
 - [npm: @foldjs/cli](https://www.npmjs.com/package/@foldjs/cli)
-- [README and full documentation](https://github.com/christophe77/foldjs#readme)
+- [README and full documentation](https://github.com/christophe77/fold.js#readme)
 - [npm: foldjs](https://www.npmjs.com/package/foldjs)
 - [npm: @foldjs/react](https://www.npmjs.com/package/@foldjs/react)
-- [Source code](https://github.com/christophe77/foldjs)
+- [Source code](https://github.com/christophe77/fold.js)

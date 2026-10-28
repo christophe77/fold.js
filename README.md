@@ -3,19 +3,19 @@
 [![npm](https://img.shields.io/npm/v/foldjs?color=5b4bff)](https://www.npmjs.com/package/foldjs)
 [![gzip size](https://img.shields.io/bundlejs/size/foldjs?label=gzip)](https://bundlejs.com/?q=foldjs)
 [![license](https://img.shields.io/npm/l/foldjs)](LICENSE)
-[![demo](https://img.shields.io/badge/demo-live-5b4bff)](https://christophe77.github.io/foldjs/)
+[![demo](https://img.shields.io/badge/demo-live-5b4bff)](https://christophe77.github.io/fold.js/)
 
 **fold.js is an open-source JavaScript library that makes web apps work properly on foldable phones** such as the Samsung Galaxy Z Fold, Google Pixel Fold, Honor Magic V or Microsoft Surface Duo. It detects the hinge and the device posture (flat, book, tabletop), and gives you two-pane layouts that never put content under the hinge. It works with React, Vue, Svelte, Solid, Angular, Astro or plain HTML, weighs about 2 kB, and ships with a built-in foldable simulator so you can build without owning a device.
 
-> 📊 **New study:** [94% of popular websites split a button across a foldable's hinge](https://christophe77.github.io/foldjs/study.html) (79 sites audited on a Galaxy Z Fold, including Google, Amazon and Facebook, plus a run at the leaked iPhone Fold size: 88%).
+> 📊 **New study:** [94% of popular websites split a button across a foldable's hinge](https://christophe77.github.io/fold.js/study.html) (79 sites audited on a Galaxy Z Fold, including Google, Amazon and Facebook, plus a run at the leaked iPhone Fold size: 88%).
 
-### [▶ Try the live demo](https://christophe77.github.io/foldjs/) (works on desktop: the simulator is built in) · [See an existing site fixed in one line](https://christophe77.github.io/foldjs/legacy.html)
+### [▶ Try the live demo](https://christophe77.github.io/fold.js/) (works on desktop: the simulator is built in) · [See an existing site fixed in one line](https://christophe77.github.io/fold.js/legacy.html)
 
 ```bash
 npx foldjs audit https://your-site.com   # how foldable-ready is your site? Score out of 100 + HTML report
 ```
 
-![fold.js demo: npx foldjs audit scores a mobile site 83/100, the HTML report outlines elements under the hinge, foldjs/auto fixes the site to 100/100, then a fold.js app switches between book and tabletop postures](https://raw.githubusercontent.com/christophe77/foldjs/main/docs/demo.gif)
+![fold.js demo: npx foldjs audit scores a mobile site 83/100, the HTML report outlines elements under the hinge, foldjs/auto fixes the site to 100/100, then a fold.js app switches between book and tabletop postures](https://raw.githubusercontent.com/christophe77/fold.js/main/docs/demo.gif)
 
 ## Why fold.js?
 
@@ -160,7 +160,7 @@ The panel also shows a live **foldable score** and outlines every element under 
 ## Audit any website: `npx foldjs audit`
 
 ```bash
-npx foldjs audit https://christophe77.github.io/foldjs/legacy.html
+npx foldjs audit https://christophe77.github.io/fold.js/legacy.html
 ```
 
 ```
@@ -178,7 +178,7 @@ npx foldjs audit https://christophe77.github.io/foldjs/legacy.html
   Report: ./foldjs-report/report.html
 ```
 
-It opens the page in headless Chrome at the real inner-screen sizes of the Samsung Galaxy Z Fold and Google Pixel Fold, in book and tabletop postures, and lists every element under the hinge. The HTML report shows annotated screenshots and a fix for each issue, plus a badge for your README: [![foldable-ready](https://img.shields.io/badge/foldable--ready-100%2F100-brightgreen)](https://github.com/christophe77/foldjs)
+It opens the page in headless Chrome at the real inner-screen sizes of the Samsung Galaxy Z Fold and Google Pixel Fold, in book and tabletop postures, and lists every element under the hinge. The HTML report shows annotated screenshots and a fix for each issue, plus a badge for your README: [![foldable-ready](https://img.shields.io/badge/foldable--ready-100%2F100-brightgreen)](https://github.com/christophe77/fold.js)
 
 | Option | Default | |
 |---|---|---|
@@ -219,7 +219,7 @@ On a foldable (and in the simulator), it applies safe, reversible fixes as inlin
 | Any element is pushed off the hinge (titles, call-to-action buttons) | add `data-fold-avoid` | `avoid` |
 | An element and its children are never touched | add `data-fold-ignore` | |
 
-Turn a fix off with `autoFix({ bars: false })` or `<script src="…/auto.global.js" data-bars="false">`. [See it on a typical mobile site](https://christophe77.github.io/foldjs/legacy.html): the foldable score goes from 70 to 100 in book posture.
+Turn a fix off with `autoFix({ bars: false })` or `<script src="…/auto.global.js" data-bars="false">`. [See it on a typical mobile site](https://christophe77.github.io/fold.js/legacy.html): the foldable score goes from 70 to 100 in book posture.
 
 ## iPhone Fold: the virtual fold
 
@@ -234,7 +234,7 @@ configure({ virtualFold: true });   // any landscape screen at least 600px tall 
 configure({ virtualFold: false });  // never
 ```
 
-The iPhone Fold crease is reportedly much shallower than on earlier foldables, so content on the fold stays readable. The virtual fold is about using the wide inner screen well, not about hiding a gap. Preview it in the [demo](https://christophe77.github.io/foldjs/?virtual=1), and audit a site at the leaked iPhone Fold size with `npx foldjs audit <url> --device iphone-fold`.
+The iPhone Fold crease is reportedly much shallower than on earlier foldables, so content on the fold stays readable. The virtual fold is about using the wide inner screen well, not about hiding a gap. Preview it in the [demo](https://christophe77.github.io/fold.js/?virtual=1), and audit a site at the leaked iPhone Fold size with `npx foldjs audit <url> --device iphone-fold`.
 
 ## Core API
 

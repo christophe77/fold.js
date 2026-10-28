@@ -1,16 +1,16 @@
 {
   "name": "foldjs",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Make any web app foldable-ready: detect the hinge and posture (book, tabletop) of foldable phones and build two-pane layouts. Framework-agnostic core, CSS layer, Web Components and a built-in foldable simulator.",
   "license": "MIT",
   "author": "christophe77",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/christophe77/foldjs.git",
+    "url": "git+https://github.com/christophe77/fold.js.git",
     "directory": "packages/core"
   },
-  "homepage": "https://christophe77.github.io/foldjs/",
-  "bugs": "https://github.com/christophe77/foldjs/issues",
+  "homepage": "https://christophe77.github.io/fold.js/",
+  "bugs": "https://github.com/christophe77/fold.js/issues",
   "type": "module",
   "sideEffects": [
     "./dist/elements.js",

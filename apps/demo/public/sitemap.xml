@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://christophe77.github.io/foldjs/</loc>
+    <loc>https://christophe77.github.io/fold.js/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://christophe77.github.io/foldjs/legacy.html</loc>
+    <loc>https://christophe77.github.io/fold.js/legacy.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://christophe77.github.io/foldjs/study.html</loc>
+    <loc>https://christophe77.github.io/fold.js/study.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>

@@ -7,7 +7,7 @@ const src = (p: string) => fileURLToPath(new URL(`../../packages/${p}`, import.m
 
 // Point straight at the sources so the demo hot-reloads while working on the library.
 export default defineConfig({
-  // Served from https://christophe77.github.io/foldjs/ on GitHub Pages.
+  // Served from https://christophe77.github.io/fold.js/ on GitHub Pages.
   base: process.env.DEMO_BASE ?? "/",
   plugins: [react(), svelte()],
   build: {
