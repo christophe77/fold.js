@@ -7,7 +7,7 @@
 
 **fold.js is an open-source JavaScript library that makes web apps work properly on foldable phones** such as the Samsung Galaxy Z Fold, Google Pixel Fold, Honor Magic V or Microsoft Surface Duo. It detects the hinge and the device posture (flat, book, tabletop), and gives you two-pane layouts that never put content under the hinge. It works with React, Vue, Svelte, Solid, Angular, Astro or plain HTML, weighs about 2 kB, and ships with a built-in foldable simulator so you can build without owning a device.
 
-> 📊 **New study:** [94% of popular websites split a button across a foldable's hinge](https://christophe77.github.io/foldjs/study.html) (79 sites audited on a Galaxy Z Fold, including Google, Amazon and Facebook).
+> 📊 **New study:** [94% of popular websites split a button across a foldable's hinge](https://christophe77.github.io/foldjs/study.html) (79 sites audited on a Galaxy Z Fold, including Google, Amazon and Facebook, plus a run at the leaked iPhone Fold size: 88%).
 
 ### [▶ Try the live demo](https://christophe77.github.io/foldjs/) (works on desktop: the simulator is built in) · [See an existing site fixed in one line](https://christophe77.github.io/foldjs/legacy.html)
 
@@ -182,7 +182,7 @@ It opens the page in headless Chrome at the real inner-screen sizes of the Samsu
 
 | Option | Default | |
 |---|---|---|
-| `--device` | `all` | `galaxy-z-fold`, `pixel-fold` or `all` |
+| `--device` | `all` | `galaxy-z-fold`, `pixel-fold`, `iphone-fold` or `all`. `iphone-fold` uses leaked specs (904×640 CSS px, iPhone user agent) and is not part of `all`. |
 | `--posture` | `all` | `book`, `tabletop` or `all` |
 | `--out` | `foldjs-report` | Report folder (`report.html` + `report.json`) |
 | `--min-score` | | Exit with code 1 below this score, for CI |
@@ -220,6 +220,21 @@ On a foldable (and in the simulator), it applies safe, reversible fixes as inlin
 | An element and its children are never touched | add `data-fold-ignore` | |
 
 Turn a fix off with `autoFix({ bars: false })` or `<script src="…/auto.global.js" data-bars="false">`. [See it on a typical mobile site](https://christophe77.github.io/foldjs/legacy.html): the foldable score goes from 70 to 100 in book posture.
+
+## iPhone Fold: the virtual fold
+
+Safari does not implement the foldable web APIs, so a page cannot know where the iPhone Fold folds. fold.js handles it anyway: when an Apple touch screen measures 600 to 720px on its short side (regular iPhones are under 450px, iPads at least 744px, so only an unfolded iPhone Fold fits) and is held in landscape, it splits the viewport at its center line. `<TwoPane>`, `use:twoPane`, `<fold-two-pane>` and the CSS layer then show list and detail side by side, like on an iPad. In portrait, nothing changes.
+
+It is on by default and only affects that case. `getFold().virtual` tells you when it is active. Change it with `configure()`:
+
+```js
+import { configure } from "foldjs"; // also exported by every adapter
+configure({ virtualFold: "auto" }); // default: unfolded iPhone Fold only
+configure({ virtualFold: true });   // any landscape screen at least 600px tall (tablets, desktop testing)
+configure({ virtualFold: false });  // never
+```
+
+The iPhone Fold crease is reportedly much shallower than on earlier foldables, so content on the fold stays readable. The virtual fold is about using the wide inner screen well, not about hiding a gap. Preview it in the [demo](https://christophe77.github.io/foldjs/?virtual=1), and audit a site at the leaked iPhone Fold size with `npx foldjs audit <url> --device iphone-fold`.
 
 ## Core API
 
@@ -266,6 +281,9 @@ Use the `fold-two-pane` class from `foldjs/css`, or the `--fold-hinge-*` and `--
 
 ### Can I build for foldables without owning one?
 Yes. The built-in simulator (`<FoldDevtools />`, `<FoldDevtools>` in Vue, or `mountDevtools()` anywhere) fakes the segments and posture on any desktop browser. Chrome DevTools device emulation (Galaxy Z Fold, Surface Duo) also works with fold.js.
+
+### Does fold.js work on the iPhone Fold?
+Yes, with a virtual fold. Safari exposes no foldable API, so fold.js detects an unfolded iPhone Fold from its screen size and splits the viewport at its center in landscape. Two-pane layouts work out of the box; posture detection (book or tabletop angle) is not possible on iOS until WebKit ships the Device Posture and Viewport Segments APIs.
 
 ### Which devices and browsers are supported?
 Chrome and Edge on Android foldables (Samsung Galaxy Z Fold, Google Pixel Fold, Honor, Oppo, Vivo, Surface Duo) support the native APIs. On every other browser, including Samsung Internet, Firefox and Safari on iOS, fold.js falls back to a normal single-screen layout and the simulator still works.

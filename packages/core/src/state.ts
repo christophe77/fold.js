@@ -1,10 +1,11 @@
-import type { DevicePosture, FoldState, Posture, Rect, SimulateOptions, Spanning } from "./types";
+import type { DevicePosture, FoldConfig, FoldState, Posture, Rect, SimulateOptions, Spanning } from "./types";
 
 export interface StateInput {
   segments: Rect[] | null;
   devicePosture: DevicePosture;
   viewport: { width: number; height: number };
   simulated?: boolean;
+  virtual?: boolean;
 }
 
 /** Pure function: turns raw device readings into a FoldState. */
@@ -45,6 +46,7 @@ export function deriveState(input: StateInput): FoldState {
     devicePosture,
     viewport: { width: viewport.width, height: viewport.height },
     simulated: input.simulated ?? false,
+    virtual: input.virtual ?? false,
   };
 }
 
@@ -86,6 +88,26 @@ export function readDevice(): StateInput {
     devicePosture: (navigator as any).devicePosture?.type === "folded" ? "folded" : "continuous",
     viewport: { width: window.innerWidth, height: window.innerHeight },
   };
+}
+
+/**
+ * Whether to split this screen with a virtual fold. Only used when the browser
+ * reports no segments of its own.
+ */
+export function wantsVirtualFold(
+  mode: FoldConfig["virtualFold"],
+  env: { viewport: { width: number; height: number }; screen: { width: number; height: number }; userAgent: string; touchPoints?: number },
+): boolean {
+  const { width, height } = env.viewport;
+  const landscape = width > height && height >= 600;
+  if (mode === false || !landscape) return false;
+  if (mode === true) return true;
+  // An Apple touch screen whose short side is 600 to 720px can only be an unfolded iPhone Fold:
+  // regular iPhones are under 450px and iPads at least 744px. Safari may present itself as a Mac
+  // on large screens (as on iPad), so a touch-enabled "Macintosh" counts too.
+  const apple = /\biPhone\b/.test(env.userAgent) || (/\bMacintosh\b/.test(env.userAgent) && (env.touchPoints ?? 0) > 1);
+  const short = Math.min(env.screen.width, env.screen.height);
+  return apple && short >= 600 && short <= 720;
 }
 
 function toRect(r: Rect): Rect {

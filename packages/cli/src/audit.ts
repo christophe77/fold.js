@@ -9,12 +9,23 @@ export interface Device {
   /** CSS viewport of the inner screen held in book posture (vertical hinge). */
   width: number;
   height: number;
+  /** User agent sent to the site, so it serves the layout it would serve this phone. */
+  userAgent: string;
+  /** Dimensions come from leaks, not from the manufacturer. */
+  estimated?: boolean;
 }
+
+const ANDROID_UA =
+  "Mozilla/5.0 (Linux; Android 14; SM-F946B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36";
+const IPHONE_UA =
+  "Mozilla/5.0 (iPhone; CPU iPhone OS 26_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/26.0 Mobile/15E148 Safari/604.1";
 
 // Inner (unfolded) screens, CSS pixels, held in book posture.
 export const DEVICES: Device[] = [
-  { id: "galaxy-z-fold", name: "Samsung Galaxy Z Fold", width: 690, height: 829 },
-  { id: "pixel-fold", name: "Google Pixel Fold", width: 841, height: 701 },
+  { id: "galaxy-z-fold", name: "Samsung Galaxy Z Fold", width: 690, height: 829, userAgent: ANDROID_UA },
+  { id: "pixel-fold", name: "Google Pixel Fold", width: 841, height: 701, userAgent: ANDROID_UA },
+  // Leaked inner screen: 7.76", 2713×1920 px, assumed @3x like other iPhones. Not in "all" until Apple confirms it.
+  { id: "iphone-fold", name: "iPhone Fold (leaked specs)", width: 904, height: 640, userAgent: IPHONE_UA, estimated: true },
 ];
 
 export type Posture = "book" | "tabletop";
@@ -53,9 +64,6 @@ export interface AuditOptions {
   onProgress?: (message: string) => void;
 }
 
-const UA =
-  "Mozilla/5.0 (Linux; Android 14; SM-F946B) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Mobile Safari/537.36";
-
 const require = createRequire(import.meta.url);
 
 export async function audit(url: string, options: AuditOptions): Promise<AuditResult> {
@@ -66,7 +74,6 @@ export async function audit(url: string, options: AuditOptions): Promise<AuditRe
 
   try {
     const page = await browser.newPage();
-    await page.setUserAgent(UA);
     // Sites with a Content-Security-Policy would otherwise block the injected audit script.
     await page.setBypassCSP(true);
 
@@ -74,6 +81,7 @@ export async function audit(url: string, options: AuditOptions): Promise<AuditRe
       for (const posture of options.postures) {
         const viewport = posture === "book" ? { width: device.width, height: device.height } : { width: device.height, height: device.width };
         options.onProgress?.(`${device.name} · ${posture} (${viewport.width}×${viewport.height})`);
+        await page.setUserAgent(device.userAgent);
         await page.setViewport({ ...viewport, deviceScaleFactor: 1.5, isMobile: true, hasTouch: true });
         try {
           await page.goto(url, { waitUntil: "networkidle2", timeout: options.timeout });

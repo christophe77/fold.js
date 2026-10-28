@@ -5,7 +5,7 @@ import type { FoldState, Posture } from "foldjs";
 import type { DevtoolsOptions } from "foldjs/devtools";
 
 export type { FoldState, Posture, Rect, Spanning } from "foldjs";
-export { simulate } from "foldjs";
+export { configure, simulate } from "foldjs";
 
 /** Live foldable state as a readonly ref. */
 export function useFold(): Readonly<ShallowRef<FoldState>> {

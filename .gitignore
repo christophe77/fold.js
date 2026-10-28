@@ -5,3 +5,4 @@ dist
 packages/*/README.md
 scripts/study/shots
 scripts/study/*.log
+scripts/study/shots-*

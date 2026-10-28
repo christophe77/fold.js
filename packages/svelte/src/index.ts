@@ -4,7 +4,7 @@ import { bindTwoPane, getFold, subscribe } from "foldjs";
 import type { FoldState, Posture, TwoPaneOptions } from "foldjs";
 
 export type { FoldState, Posture, Rect, Spanning } from "foldjs";
-export { simulate } from "foldjs";
+export { configure, simulate } from "foldjs";
 export { mountDevtools } from "foldjs/devtools";
 
 /** Live foldable state: `$fold.posture`, `$fold.hinge`… */

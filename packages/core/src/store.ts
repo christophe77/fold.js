@@ -1,11 +1,12 @@
-import { deriveState, readDevice, simulatedSegments } from "./state";
-import type { FoldState, SimulateOptions } from "./types";
+import { deriveState, readDevice, simulatedSegments, wantsVirtualFold } from "./state";
+import type { FoldConfig, FoldState, SimulateOptions } from "./types";
 
 type Listener = (state: FoldState) => void;
 
 interface Store {
   listeners: Set<Listener>;
   simulation: SimulateOptions | null;
+  config: Required<FoldConfig>;
   snapshot: FoldState;
   detach: (() => void) | null;
 }
@@ -15,14 +16,29 @@ interface Store {
 const store: Store = ((globalThis as any).__foldjs ??= {
   listeners: new Set<Listener>(),
   simulation: null,
+  config: { virtualFold: "auto" },
   snapshot: deriveState(readDevice()),
   detach: null,
 });
+// A store created by an older copy of foldjs on the same page has no config yet.
+store.config ??= { virtualFold: "auto" };
 
 function compute(): FoldState {
   const device = readDevice();
   const sim = store.simulation;
-  if (!sim) return deriveState(device);
+  if (!sim) {
+    // Browsers with the Viewport Segments API report one segment when the screen is not split.
+    const split = (device.segments?.length ?? 0) > 1;
+    if (!split && typeof window !== "undefined" && wantsVirtualFold(store.config.virtualFold, {
+      viewport: device.viewport,
+      screen: window.screen ?? device.viewport,
+      userAgent: navigator.userAgent,
+      touchPoints: navigator.maxTouchPoints,
+    })) {
+      return deriveState({ ...device, segments: simulatedSegments(device.viewport, { posture: "book", hingeSize: 0 }), virtual: true });
+    }
+    return deriveState(device);
+  }
   return deriveState({
     ...device,
     segments: simulatedSegments(device.viewport, sim),
@@ -71,6 +87,12 @@ export function subscribe(listener: Listener): () => void {
  */
 export function init(): () => void {
   return subscribe(() => {});
+}
+
+/** Changes global options, such as the virtual fold. */
+export function configure(config: FoldConfig): void {
+  store.config = { ...store.config, ...config };
+  refresh();
 }
 
 /** Fakes a foldable posture (for development and demos). Pass `null` to go back to the real device. */

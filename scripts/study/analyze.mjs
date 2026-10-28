@@ -117,6 +117,31 @@ const summary = {
     .sort((a, b) => a.average - b.average),
 };
 
+// Same sites at the leaked iPhone Fold size (904×640 CSS px, iPhone user agent).
+const iphoneFile = join(here, "results-iphone-fold.json");
+if (existsSync(iphoneFile)) {
+  const ip = JSON.parse(readFileSync(iphoneFile, "utf8"));
+  const ipExcluded = JSON.parse(readFileSync(join(here, "excluded-iphone-fold.json"), "utf8"));
+  const both = sites.filter((x) => ip[x.name] && !ip[x.name].error && !ipExcluded[x.name]);
+  for (const x of both) {
+    const r = ip[x.name];
+    x.iphone = { score: r.score, book: r.scenarios.find((sc) => sc.posture === "book").score };
+  }
+  // Flat value for sorting the results table (-1: not audited on iPhone).
+  for (const x of sites) x.iphoneScore = x.iphone?.score ?? -1;
+  const n = both.length;
+  const critical = both.filter((x) => ip[x.name].scenarios.some((sc) => sc.issues.some((i) => i.severity === "critical")));
+  summary.iphone = {
+    device: "iPhone Fold, leaked specs (904×640 CSS px, iPhone user agent)",
+    tested: n,
+    average: Math.round(both.reduce((a, x) => a + x.iphone.score, 0) / n),
+    averageBook: Math.round(both.reduce((a, x) => a + x.iphone.book, 0) / n),
+    ready: Math.round((both.filter((x) => x.iphone.score >= 90).length / n) * 100),
+    withCritical: Math.round((critical.length / n) * 100),
+    worse: Math.round((both.filter((x) => x.iphone.score < x.score).length / n) * 100),
+  };
+}
+
 writeFileSync(join(out, "data.json"), JSON.stringify({ summary, sites, failed }, null, 1));
 console.log(JSON.stringify(summary, null, 2));
 console.log("failed:", failed.map((f) => `${f.name} (${f.reason})`).join(", "));

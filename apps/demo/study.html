@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>94% of popular websites split a button across a foldable's hinge · fold.js study</title>
-    <meta name="description" content="We audited 79 of the most visited websites on a Samsung Galaxy Z Fold. 94% put a button, link or form field under the hinge, 70% are not foldable-ready, and the average score in book posture is 72/100." />
+    <meta name="description" content="We audited 79 of the most visited websites on a Samsung Galaxy Z Fold. 94% put a button, link or form field under the hinge, 70% are not foldable-ready, and the average score in book posture is 72/100. At the leaked iPhone Fold size, 88% still put a control on the fold line." />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <link rel="canonical" href="https://christophe77.github.io/foldjs/study.html" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -13,7 +13,7 @@
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="fold.js" />
     <meta property="og:title" content="94% of popular websites split a button across a foldable's hinge" />
-    <meta property="og:description" content="79 of the most visited websites audited on a Samsung Galaxy Z Fold: scores, worst offenders, and how to fix it." />
+    <meta property="og:description" content="79 of the most visited websites audited on a Samsung Galaxy Z Fold, and at the leaked iPhone Fold size: scores, worst offenders, and how to fix it." />
     <meta property="og:url" content="https://christophe77.github.io/foldjs/study.html" />
     <meta property="og:image" content="https://christophe77.github.io/foldjs/study/og.png" />
     <meta property="og:image:width" content="1200" />
@@ -91,10 +91,26 @@
       <h2>Hall of fame</h2>
       <div class="cards" id="fame"></div>
 
+      <h2>And on the iPhone Fold?</h2>
+      <p class="muted">
+        We ran the same audit at the leaked size of the iPhone Fold inner screen (904×640 CSS pixels, assuming @3x like other iPhones) with an iPhone user agent,
+        on the <span id="ip-tested">76</span> sites that let us in. Apple has not confirmed these specs.
+      </p>
+      <section class="kpis" aria-label="iPhone Fold numbers">
+        <div class="kpi"><b id="ip-critical">88%</b><span>put a button, link or form field on the fold line</span></div>
+        <div class="kpi"><b id="ip-failing">55%</b><span>score below 90/100</span></div>
+        <div class="kpi"><b id="ip-book">78</b><span>average score out of 100 in book posture (71 on the Galaxy Z Fold)</span></div>
+      </section>
+      <div class="panel">
+        <p>Slightly better than the Galaxy Z Fold, because the wider screen leaves more room around the center, but the same story: Google's search box still sits on the fold (52/100 in book posture).</p>
+        <p class="note">Two things differ on the iPhone. Its crease is reportedly much shallower, so content on the fold stays readable; the real issue is a wide screen used as a stretched phone layout. And Safari has no foldable API, so pages cannot detect the fold. fold.js handles it with a <a href="https://github.com/christophe77/foldjs#iphone-fold-the-virtual-fold">virtual fold</a>: on an unfolded iPhone Fold in landscape, two-pane layouts split at the center automatically.</p>
+      </div>
+
       <section class="cta">
         <h2>Test your own site</h2>
         <p>The audit behind this study is open source. Run it on your site, your staging server or in CI:</p>
-        <pre><code>npx foldjs audit https://your-site.com --dismiss-consent</code></pre>
+        <pre><code>npx foldjs audit https://your-site.com --dismiss-consent
+npx foldjs audit https://your-site.com --device iphone-fold</code></pre>
         <p>
           Then fix it with <a href="https://github.com/christophe77/foldjs#readme">fold.js</a>: two-pane layouts for React, Vue, Svelte, Solid and Web Components,
           or one script tag that <a href="legacy.html">retrofits an existing site</a>.
@@ -116,6 +132,7 @@
               <th class="num"><button data-key="book">Book</button></th>
               <th class="num"><button data-key="tabletop">Tabletop</button></th>
               <th class="num"><button data-key="critical">Critical</button></th>
+              <th class="num"><button data-key="iphoneScore">iPhone Fold</button></th>
               <th>Worst issue (book)</th>
             </tr>
           </thead>
@@ -131,6 +148,7 @@
         <li>Score: 100 minus 6 per critical issue, 3 per warning and 1 per minor issue, per posture; the site score is the average of both postures. 90 and above counts as foldable-ready.</li>
         <li>Cookie banners: a first pass was run as a normal visitor (that is where the 65% figure comes from). The results above come from a second pass where the audit closed consent banners automatically, rejecting when possible. About a dozen banners could not be closed and are part of the result.</li>
         <li>Sites list: 100 of the most visited global and French websites. <span id="failed">21 sites showed a bot check or a country selection page instead of the real site and are left out.</span></li>
+        <li>iPhone Fold: same sites and settings at 904×640 CSS pixels with an iPhone user agent, from leaked specs (7.76", 2713×1920 pixels, @3x assumed). The page still renders in Chrome, not Safari. Two more sites showed a bot check and are left out of this part.</li>
         <li>Limits: scores reflect one moment, one location and one device size. Sites change often; run the audit yourself to check today's result.</li>
       </ul>
 

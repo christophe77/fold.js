@@ -116,7 +116,16 @@
     "count": 5,
     "average": 92
    }
-  ]
+  ],
+  "iphone": {
+   "device": "iPhone Fold, leaked specs (904×640 CSS px, iPhone user agent)",
+   "tested": 76,
+   "average": 86,
+   "averageBook": 78,
+   "ready": 45,
+   "withCritical": 88,
+   "worse": 25
+  }
  },
  "sites": [
   {
@@ -137,7 +146,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Lancez-vous rapidementVous pourriez commencer à vendre dès demain."
-   }
+   },
+   "iphone": {
+    "score": 59,
+    "book": 30
+   },
+   "iphoneScore": 59
   },
   {
    "name": "ebay.com",
@@ -159,7 +173,12 @@
    "top": {
     "message": "Form field is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 72,
+    "book": 73
+   },
+   "iphoneScore": 72
   },
   {
    "name": "twitch.tv",
@@ -180,7 +199,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "WORLDS - SWISS STAGE DAY 4"
-   }
+   },
+   "iphone": {
+    "score": 100,
+    "book": 100
+   },
+   "iphoneScore": 100
   },
   {
    "name": "washingtonpost.com",
@@ -203,7 +227,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Accessibility statement"
-   }
+   },
+   "iphone": {
+    "score": 70,
+    "book": 49
+   },
+   "iphoneScore": 70
   },
   {
    "name": "allocine.fr",
@@ -225,7 +254,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 66,
+    "book": 52
+   },
+   "iphoneScore": 66
   },
   {
    "name": "airbnb.com",
@@ -246,7 +280,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 82,
+    "book": 88
+   },
+   "iphoneScore": 82
   },
   {
    "name": "facebook.com",
@@ -267,7 +306,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": "Français (France)"
-   }
+   },
+   "iphone": {
+    "score": 66,
+    "book": 43
+   },
+   "iphoneScore": 66
   },
   {
    "name": "temu.com",
@@ -289,7 +333,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": "pompe aspirante"
-   }
+   },
+   "iphone": {
+    "score": 63,
+    "book": 63
+   },
+   "iphoneScore": 63
   },
   {
    "name": "google.com",
@@ -308,7 +357,12 @@
    "top": {
     "message": "Form field is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 73,
+    "book": 52
+   },
+   "iphoneScore": 73
   },
   {
    "name": "apple.com",
@@ -329,7 +383,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 77,
+    "book": 62
+   },
+   "iphoneScore": 77
   },
   {
    "name": "booking.com",
@@ -350,7 +409,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Vol + hôtel"
-   }
+   },
+   "iphone": {
+    "score": 79,
+    "book": 58
+   },
+   "iphoneScore": 79
   },
   {
    "name": "aliexpress.com",
@@ -372,7 +436,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Pièces"
-   }
+   },
+   "iphone": {
+    "score": 63,
+    "book": 55
+   },
+   "iphoneScore": 63
   },
   {
    "name": "x.com",
@@ -393,7 +462,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": "S’inscrire avec un numéro de téléphone"
-   }
+   },
+   "iphone": {
+    "score": 87,
+    "book": 79
+   },
+   "iphoneScore": 87
   },
   {
    "name": "lefigaro.fr",
@@ -416,7 +490,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 84,
+    "book": 69
+   },
+   "iphoneScore": 84
   },
   {
    "name": "20minutes.fr",
@@ -437,7 +516,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "20 Minutes : Actualités et infos en direct"
-   }
+   },
+   "iphone": {
+    "score": 87,
+    "book": 76
+   },
+   "iphoneScore": 87
   },
   {
    "name": "dailymail.co.uk",
@@ -458,7 +542,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Healey hits banks in Budget to offer 'breathing space' on energy bills"
-   }
+   },
+   "iphone": {
+    "score": 87,
+    "book": 79
+   },
+   "iphoneScore": 87
   },
   {
    "name": "carrefour.fr",
@@ -480,7 +569,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": "Demander à Hopla"
-   }
+   },
+   "iphone": {
+    "score": 88,
+    "book": 81
+   },
+   "iphoneScore": 88
   },
   {
    "name": "shein.com",
@@ -501,7 +595,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Trends"
-   }
+   },
+   "iphone": {
+    "score": 79,
+    "book": 58
+   },
+   "iphoneScore": 79
   },
   {
    "name": "foxnews.com",
@@ -521,7 +620,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "BENEATH THE SURFACE"
-   }
+   },
+   "iphone": {
+    "score": 91,
+    "book": 88
+   },
+   "iphoneScore": 91
   },
   {
    "name": "cdiscount.com",
@@ -542,7 +646,12 @@
    "top": {
     "message": "Form field is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 75,
+    "book": 67
+   },
+   "iphoneScore": 75
   },
   {
    "name": "marmiton.org",
@@ -563,7 +672,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Consultez nos dernières actus"
-   }
+   },
+   "iphone": {
+    "score": 84,
+    "book": 76
+   },
+   "iphoneScore": 84
   },
   {
    "name": "github.com",
@@ -585,7 +699,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 84,
+    "book": 73
+   },
+   "iphoneScore": 84
   },
   {
    "name": "usatoday.com",
@@ -604,7 +723,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Politics"
-   }
+   },
+   "iphone": {
+    "score": 88,
+    "book": 82
+   },
+   "iphoneScore": 88
   },
   {
    "name": "nbcnews.com",
@@ -626,7 +750,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "BREAKING: At least 64 people killed and 80 injured after two trains collide in S"
-   }
+   },
+   "iphone": {
+    "score": 82,
+    "book": 67
+   },
+   "iphoneScore": 82
   },
   {
    "name": "yahoo.com",
@@ -648,7 +777,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 92,
+    "book": 84
+   },
+   "iphoneScore": 92
   },
   {
    "name": "theguardian.com",
@@ -670,7 +804,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 66,
+    "book": 52
+   },
+   "iphoneScore": 66
   },
   {
    "name": "stripe.com",
@@ -691,7 +830,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "S'inscrire avec Google"
-   }
+   },
+   "iphone": {
+    "score": 79,
+    "book": 68
+   },
+   "iphoneScore": 79
   },
   {
    "name": "linkedin.com",
@@ -712,7 +856,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 95,
+    "book": 91
+   },
+   "iphoneScore": 95
   },
   {
    "name": "free.fr",
@@ -733,7 +882,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 92,
+    "book": 90
+   },
+   "iphoneScore": 92
   },
   {
    "name": "francetvinfo.fr",
@@ -754,7 +908,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Mobilisation des lycéens"
-   }
+   },
+   "iphone": {
+    "score": 93,
+    "book": 91
+   },
+   "iphoneScore": 93
   },
   {
    "name": "ikea.com",
@@ -774,7 +933,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Step into autumn styleTime to get cosy"
-   }
+   },
+   "iphone": {
+    "score": 84,
+    "book": 77
+   },
+   "iphoneScore": 84
   },
   {
    "name": "vinted.fr",
@@ -796,7 +960,12 @@
    "top": {
     "message": "Form field is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 95,
+    "book": 90
+   },
+   "iphoneScore": 95
   },
   {
    "name": "boursorama.com",
@@ -818,7 +987,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Investir à 0€ de frais de courtage sur plus de 45 000 produitsInvestir à 0€ de f"
-   }
+   },
+   "iphone": {
+    "score": 84,
+    "book": 73
+   },
+   "iphoneScore": 84
   },
   {
    "name": "en.m.wikipedia.org",
@@ -839,7 +1013,12 @@
    "top": {
     "message": "Form field is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 86,
+    "book": 72
+   },
+   "iphoneScore": 86
   },
   {
    "name": "tiktok.com",
@@ -860,7 +1039,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": "Ouvrir l'application"
-   }
+   },
+   "iphone": {
+    "score": 85,
+    "book": 73
+   },
+   "iphoneScore": 85
   },
   {
    "name": "samsung.com",
@@ -882,7 +1066,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 93,
+    "book": 93
+   },
+   "iphoneScore": 93
   },
   {
    "name": "whatsapp.com",
@@ -903,7 +1092,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 96,
+    "book": 93
+   },
+   "iphoneScore": 96
   },
   {
    "name": "huffpost.com",
@@ -923,7 +1117,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "HUFFPOST"
-   }
+   },
+   "iphone": {
+    "score": 82,
+    "book": 70
+   },
+   "iphoneScore": 82
   },
   {
    "name": "deezer.com",
@@ -943,7 +1142,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "S'inscrire gratuitement"
-   }
+   },
+   "iphone": {
+    "score": 94,
+    "book": 88
+   },
+   "iphoneScore": 94
   },
   {
    "name": "reddit.com",
@@ -963,7 +1167,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": ".snoo-cls-11,.snoo-cls-9{stroke-width:0}.snoo-cls-9{fill:#842123}.snoo-cls-11{fi"
-   }
+   },
+   "iphone": {
+    "score": 86,
+    "book": 80
+   },
+   "iphoneScore": 86
   },
   {
    "name": "bbc.com",
@@ -984,7 +1193,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "British Broadcasting Corporation"
-   }
+   },
+   "iphone": {
+    "score": 87,
+    "book": 81
+   },
+   "iphoneScore": 87
   },
   {
    "name": "netflix.com",
@@ -1005,7 +1219,12 @@
    "top": {
     "message": "Form field is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 92,
+    "book": 84
+   },
+   "iphoneScore": 92
   },
   {
    "name": "pinterest.com",
@@ -1026,7 +1245,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 95,
+    "book": 90
+   },
+   "iphoneScore": 95
   },
   {
    "name": "duckduckgo.com",
@@ -1046,7 +1270,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": "Rechercher"
-   }
+   },
+   "iphone": {
+    "score": 94,
+    "book": 88
+   },
+   "iphoneScore": 94
   },
   {
    "name": "nike.com",
@@ -1066,7 +1295,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 85,
+    "book": 84
+   },
+   "iphoneScore": 85
   },
   {
    "name": "notion.com",
@@ -1086,7 +1320,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 95,
+    "book": 89
+   },
+   "iphoneScore": 95
   },
   {
    "name": "duolingo.com",
@@ -1107,7 +1346,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 97,
+    "book": 96
+   },
+   "iphoneScore": 97
   },
   {
    "name": "wired.com",
@@ -1129,7 +1373,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "THE WIRED APP IS HERE"
-   }
+   },
+   "iphone": {
+    "score": 93,
+    "book": 91
+   },
+   "iphoneScore": 93
   },
   {
    "name": "cnet.com",
@@ -1149,7 +1398,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Your GuideTo a Better Future"
-   }
+   },
+   "iphone": {
+    "score": 76,
+    "book": 76
+   },
+   "iphoneScore": 76
   },
   {
    "name": "paypal.com",
@@ -1171,7 +1425,8 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Professionnel"
-   }
+   },
+   "iphoneScore": -1
   },
   {
    "name": "canva.com",
@@ -1193,7 +1448,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 79,
+    "book": 70
+   },
+   "iphoneScore": 79
   },
   {
    "name": "zoom.us",
@@ -1213,7 +1473,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Découvrir My Notes Une prise de notes assistée par l’IA disponible sur toutes vo"
-   }
+   },
+   "iphone": {
+    "score": 76,
+    "book": 70
+   },
+   "iphoneScore": 76
   },
   {
    "name": "microsoft.com",
@@ -1234,7 +1499,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 93,
+    "book": 89
+   },
+   "iphoneScore": 93
   },
   {
    "name": "theverge.com",
@@ -1257,7 +1527,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": "Latest"
-   }
+   },
+   "iphone": {
+    "score": 89,
+    "book": 78
+   },
+   "iphoneScore": 89
   },
   {
    "name": "walmart.com",
@@ -1278,7 +1553,8 @@
    "top": {
     "message": "Form field is split by the hinge",
     "text": ""
-   }
+   },
+   "iphoneScore": -1
   },
   {
    "name": "instagram.com",
@@ -1299,7 +1575,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Reels"
-   }
+   },
+   "iphone": {
+    "score": 91,
+    "book": 91
+   },
+   "iphoneScore": 91
   },
   {
    "name": "open.spotify.com",
@@ -1320,7 +1601,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": "Voir tous les abonnements"
-   }
+   },
+   "iphone": {
+    "score": 88,
+    "book": 76
+   },
+   "iphoneScore": 88
   },
   {
    "name": "slack.com",
@@ -1341,7 +1627,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Découvrir"
-   }
+   },
+   "iphone": {
+    "score": 87,
+    "book": 76
+   },
+   "iphoneScore": 87
   },
   {
    "name": "dropbox.com",
@@ -1362,7 +1653,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Essayer Dropbox gratuitement"
-   }
+   },
+   "iphone": {
+    "score": 92,
+    "book": 86
+   },
+   "iphoneScore": 92
   },
   {
    "name": "ouest-france.fr",
@@ -1382,7 +1678,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 91,
+    "book": 86
+   },
+   "iphoneScore": 91
   },
   {
    "name": "uber.com",
@@ -1402,7 +1703,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Connectez-vous pour voir votre activité"
-   }
+   },
+   "iphone": {
+    "score": 96,
+    "book": 91
+   },
+   "iphoneScore": 96
   },
   {
    "name": "amazon.com",
@@ -1423,7 +1729,12 @@
    "top": {
     "message": "Form field is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 78,
+    "book": 73
+   },
+   "iphoneScore": 78
   },
   {
    "name": "discord.com",
@@ -1444,7 +1755,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Download for Windows"
-   }
+   },
+   "iphone": {
+    "score": 98,
+    "book": 97
+   },
+   "iphoneScore": 98
   },
   {
    "name": "techcrunch.com",
@@ -1466,7 +1782,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Jio shares surge 21% in market debut after blockbuster India IPO"
-   }
+   },
+   "iphone": {
+    "score": 95,
+    "book": 93
+   },
+   "iphoneScore": 95
   },
   {
    "name": "quora.com",
@@ -1487,7 +1808,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Politique de confidentialité"
-   }
+   },
+   "iphone": {
+    "score": 92,
+    "book": 83
+   },
+   "iphoneScore": 92
   },
   {
    "name": "lemonde.fr",
@@ -1509,7 +1835,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "La collision entre deux trains en Espagne a fait au moins 64 morts, selon un nou"
-   }
+   },
+   "iphone": {
+    "score": 90,
+    "book": 79
+   },
+   "iphoneScore": 90
   },
   {
    "name": "youtube.com",
@@ -1529,7 +1860,12 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": "Rechercher sur YouTube"
-   }
+   },
+   "iphone": {
+    "score": 94,
+    "book": 88
+   },
+   "iphoneScore": 94
   },
   {
    "name": "edition.cnn.com",
@@ -1549,7 +1885,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "• Live Updates Getty Images/AP"
-   }
+   },
+   "iphone": {
+    "score": 93,
+    "book": 91
+   },
+   "iphoneScore": 93
   },
   {
    "name": "laposte.fr",
@@ -1570,7 +1911,12 @@
    "top": {
     "message": "Text crosses the hinge",
     "text": "Suivi, courrier, colis avec l'application La Poste"
-   }
+   },
+   "iphone": {
+    "score": 94,
+    "book": 92
+   },
+   "iphoneScore": 94
   },
   {
    "name": "bing.com",
@@ -1589,7 +1935,12 @@
    "top": {
     "message": "Form field is split by the hinge",
     "text": ""
-   }
+   },
+   "iphone": {
+    "score": 94,
+    "book": 88
+   },
+   "iphoneScore": 94
   },
   {
    "name": "weather.com",
@@ -1605,7 +1956,12 @@
     "interactive"
    ],
    "consent": true,
-   "top": null
+   "top": null,
+   "iphone": {
+    "score": 85,
+    "book": 69
+   },
+   "iphoneScore": 85
   },
   {
    "name": "orange.fr",
@@ -1624,7 +1980,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Déjà client ? Identifiez-vous : on vous propose des prix, et des avantages exclu"
-   }
+   },
+   "iphone": {
+    "score": 93,
+    "book": 85
+   },
+   "iphoneScore": 93
   },
   {
    "name": "hm.com",
@@ -1645,7 +2006,8 @@
    "top": {
     "message": "Button is split by the hinge",
     "text": "Les pièces phares de la saison"
-   }
+   },
+   "iphoneScore": -1
   },
   {
    "name": "figma.com",
@@ -1665,7 +2027,12 @@
    "top": {
     "message": "Modal is centered on the hinge",
     "text": "Ce site Web utilise des cookies, des pixels invisibles et du stockage local à de"
-   }
+   },
+   "iphone": {
+    "score": 99,
+    "book": 97
+   },
+   "iphoneScore": 99
   },
   {
    "name": "service-public.fr",
@@ -1685,7 +2052,12 @@
    "top": {
     "message": "Text crosses the hinge",
     "text": "Bienvenue sur le site officiel d’information et de démarches administratives"
-   }
+   },
+   "iphone": {
+    "score": 94,
+    "book": 88
+   },
+   "iphoneScore": 94
   },
   {
    "name": "medium.com",
@@ -1704,7 +2076,12 @@
    "top": {
     "message": "Text crosses the hinge",
     "text": "Human stories & ideas"
-   }
+   },
+   "iphone": {
+    "score": 94,
+    "book": 88
+   },
+   "iphoneScore": 94
   },
   {
    "name": "espn.com",
@@ -1720,7 +2097,12 @@
     "interactive"
    ],
    "consent": true,
-   "top": null
+   "top": null,
+   "iphone": {
+    "score": 87,
+    "book": 79
+   },
+   "iphoneScore": 87
   },
   {
    "name": "doctolib.fr",
@@ -1739,7 +2121,12 @@
    "top": {
     "message": "Link is split by the hinge",
     "text": "Documents"
-   }
+   },
+   "iphone": {
+    "score": 84,
+    "book": 73
+   },
+   "iphoneScore": 84
   },
   {
    "name": "wwws.airfrance.fr",
@@ -1758,7 +2145,12 @@
    "top": {
     "message": "Modal is centered on the hinge",
     "text": "Aller au contenu principal Acheter un billetS'enregistrerMes RéservationsFlying "
-   }
+   },
+   "iphone": {
+    "score": 97,
+    "book": 97
+   },
+   "iphoneScore": 97
   }
  ],
  "failed": [

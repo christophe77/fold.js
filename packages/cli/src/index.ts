@@ -18,7 +18,8 @@ Usage
   npx foldjs audit <url> [options]
 
 Options
-  --device <id>       galaxy-z-fold, pixel-fold or all (default: all)
+  --device <id>       galaxy-z-fold, pixel-fold, iphone-fold or all (default: all)
+                      iphone-fold uses leaked specs and is not part of "all"
   --posture <name>    book, tabletop or all (default: all)
   --out <dir>         report folder (default: ./foldjs-report)
   --min-score <n>     exit with code 1 if the score is below n (for CI)
@@ -79,7 +80,7 @@ export async function run(argv: string[]): Promise<number> {
     return 2;
   }
 
-  const devices = v.device === "all" ? DEVICES : DEVICES.filter((d) => d.id === v.device);
+  const devices = v.device === "all" ? DEVICES.filter((d) => !d.estimated) : DEVICES.filter((d) => d.id === v.device);
   if (devices.length === 0) {
     console.error(`Unknown device "${v.device}". Use ${DEVICES.map((d) => d.id).join(", ")} or all.`);
     return 2;

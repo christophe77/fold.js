@@ -5,7 +5,7 @@ import type { FoldState, Posture, TwoPaneOptions } from "foldjs";
 import type { DevtoolsOptions } from "foldjs/devtools";
 
 export type { FoldState, Posture, Rect, Spanning } from "foldjs";
-export { simulate } from "foldjs";
+export { configure, simulate } from "foldjs";
 
 /** Live foldable state: posture, segments, hinge… Re-renders on change. SSR-safe. */
 export function useFold(): FoldState {

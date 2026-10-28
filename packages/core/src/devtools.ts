@@ -122,7 +122,7 @@ export function mountDevtools(options: DevtoolsOptions = {}): () => void {
     const state = getFold();
     const active = getSimulation()?.posture ?? "device";
     buttons.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.id === active)));
-    info.textContent = `${state.posture}${state.simulated ? "" : " (device)"}`;
+    info.textContent = `${state.posture}${state.simulated ? "" : state.virtual ? " (virtual fold)" : " (device)"}`;
     const h = state.simulated ? state.hinge : null;
     hinge.style.display = h ? "block" : "none";
     if (h) Object.assign(hinge.style, { left: `${h.x}px`, top: `${h.y}px`, width: `${h.width}px`, height: `${h.height}px` });

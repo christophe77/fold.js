@@ -12,6 +12,8 @@ interface Site {
   warnings: number;
   kinds: string[];
   top: { message: string; text: string } | null;
+  iphone?: { score: number; book: number };
+  iphoneScore: number;
 }
 
 interface Data {
@@ -29,6 +31,7 @@ interface Data {
     perfect: number;
     consentBanners: number;
     bannerOnHinge: { percent: number; sites: number; of: number } | null;
+    iphone?: { tested: number; average: number; averageBook: number; ready: number; withCritical: number; worse: number };
     buckets: { label: string; count: number }[];
     kinds: { kind: string; label: string; percent: number }[];
     categories: { name: string; count: number; average: number }[];
@@ -116,6 +119,7 @@ function table(sites: Site[]) {
         <td class="num">${s.book}</td>
         <td class="num">${s.tabletop}</td>
         <td class="num">${s.critical}</td>
+        <td class="num">${s.iphone ? s.iphone.score : "n/a"}</td>
         <td class="muted">${s.top ? esc(s.top.message) : "None"}</td>
       </tr>`,
       )
@@ -146,6 +150,12 @@ async function main() {
   $("#date").textContent = new Date(s.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" });
   $("#tested").textContent = String(s.tested);
 
+  if (s.iphone) {
+    $("#ip-critical").textContent = `${s.iphone.withCritical}%`;
+    $("#ip-failing").textContent = `${100 - s.iphone.ready}%`;
+    $("#ip-book").textContent = String(s.iphone.averageBook);
+    $("#ip-tested").textContent = String(s.iphone.tested);
+  }
   histogram($("#chart-scores"), s.buckets, s.tested);
   hbars(
     $("#chart-kinds"),

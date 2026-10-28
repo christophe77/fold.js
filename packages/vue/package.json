@@ -1,6 +1,6 @@
 {
   "name": "@foldjs/vue",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Vue 3 composable and components for foldable phones: useFold(), <TwoPane>, <FoldWhen> and a built-in foldable simulator. Works with Nuxt.",
   "license": "MIT",
   "author": "christophe77",
@@ -47,10 +47,11 @@
     "responsive-design",
     "layout",
     "tabletop-mode",
-    "foldjs"
+    "foldjs",
+    "iphone-fold"
   ],
   "peerDependencies": {
-    "foldjs": "^0.2.0",
+    "foldjs": "^0.3.0",
     "vue": "^3.3.0"
   },
   "scripts": {

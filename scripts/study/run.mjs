@@ -1,9 +1,10 @@
 // Audits the first screen of 100 popular websites on a Samsung Galaxy Z Fold
 // (book and tabletop postures) with the fold.js CLI engine.
 //
-//   npm run build -w @foldjs/cli && node scripts/study/run.mjs [--only host,host]
+//   npm run build -w @foldjs/cli && node scripts/study/run.mjs [--device iphone-fold] [--only host,host]
 //
-// Writes scripts/study/results.json and one screenshot per site in scripts/study/shots/.
+// Writes scripts/study/results.json and one screenshot per site in scripts/study/shots/
+// (results-<device>.json and shots-<device>/ for another device).
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -14,17 +15,22 @@ process.on("unhandledRejection", (e) => console.log("ignored:", String(e).split(
 
 const here = dirname(fileURLToPath(import.meta.url));
 const sites = JSON.parse(readFileSync(join(here, "sites.json"), "utf8"));
-const resultsFile = join(here, "results.json");
-const shots = join(here, "shots");
+const arg = (name) => (process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : null);
+const deviceId = arg("--device") ?? "galaxy-z-fold";
+const suffix = deviceId === "galaxy-z-fold" ? "" : `-${deviceId}`;
+const resultsFile = join(here, `results${suffix}.json`);
+const shots = join(here, `shots${suffix}`);
 mkdirSync(shots, { recursive: true });
 
-const only = process.argv.includes("--only") ? process.argv[process.argv.indexOf("--only") + 1].split(",") : null;
+const only = arg("--only")?.split(",") ?? null;
+// Other devices only re-test the sites that were really audited in the main study.
+const excluded = suffix ? JSON.parse(readFileSync(join(here, "excluded.json"), "utf8")) : {};
 const results = existsSync(resultsFile) ? JSON.parse(readFileSync(resultsFile, "utf8")) : {};
 const browser = findBrowser();
-const device = DEVICES.find((d) => d.id === "galaxy-z-fold");
+const device = DEVICES.find((d) => d.id === deviceId);
 const host = (url) => new URL(url).hostname.replace(/^www\./, "");
 
-const queue = sites.filter((url) => (only ? only.includes(host(url)) : !results[host(url)]));
+const queue = sites.filter((url) => !excluded[host(url)] && (only ? only.includes(host(url)) : !results[host(url)]));
 let done = 0;
 
 async function worker() {
