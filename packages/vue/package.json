@@ -1,0 +1,43 @@
+{
+  "name": "@foldjs/vue",
+  "version": "0.1.0",
+  "description": "Vue 3 bindings for Fold.js: useFold(), <TwoPane>, <FoldWhen>, <FoldDevtools>.",
+  "license": "MIT",
+  "author": "christophe77",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christophe77/foldjs.git",
+    "directory": "packages/vue"
+  },
+  "homepage": "https://github.com/christophe77/foldjs#readme",
+  "bugs": "https://github.com/christophe77/foldjs/issues",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "foldable",
+    "vue",
+    "dual-screen",
+    "hinge",
+    "foldjs"
+  ],
+  "peerDependencies": {
+    "foldjs": "^0.1.0",
+    "vue": "^3.3.0"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --external vue --external foldjs"
+  }
+}

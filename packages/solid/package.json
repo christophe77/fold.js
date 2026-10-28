@@ -1,0 +1,45 @@
+{
+  "name": "@foldjs/solid",
+  "version": "0.1.0",
+  "description": "SolidJS bindings for Fold.js: createFold() and a use:twoPane directive.",
+  "license": "MIT",
+  "author": "christophe77",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christophe77/foldjs.git",
+    "directory": "packages/solid"
+  },
+  "homepage": "https://github.com/christophe77/foldjs#readme",
+  "bugs": "https://github.com/christophe77/foldjs/issues",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "solid": "./dist/index.js",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "foldable",
+    "solid",
+    "solidjs",
+    "dual-screen",
+    "hinge",
+    "foldjs"
+  ],
+  "peerDependencies": {
+    "foldjs": "^0.1.0",
+    "solid-js": "^1.6.0"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --external solid-js --external foldjs"
+  }
+}

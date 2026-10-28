@@ -1,0 +1,43 @@
+{
+  "name": "@foldjs/react",
+  "version": "0.1.0",
+  "description": "React bindings for Fold.js: useFold(), <TwoPane>, <FoldWhen>, <FoldDevtools>.",
+  "license": "MIT",
+  "author": "christophe77",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christophe77/foldjs.git",
+    "directory": "packages/react"
+  },
+  "homepage": "https://github.com/christophe77/foldjs#readme",
+  "bugs": "https://github.com/christophe77/foldjs/issues",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "foldable",
+    "react",
+    "dual-screen",
+    "hinge",
+    "foldjs"
+  ],
+  "peerDependencies": {
+    "foldjs": "^0.1.0",
+    "react": ">=18"
+  },
+  "scripts": {
+    "build": "tsup src/index.tsx --format esm,cjs --dts --clean --external react --external foldjs"
+  }
+}

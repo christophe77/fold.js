@@ -1,0 +1,58 @@
+{
+  "name": "foldjs",
+  "version": "0.1.0",
+  "description": "Make any web app foldable-ready. Framework-agnostic core, CSS layer, Web Components and a built-in foldable simulator.",
+  "license": "MIT",
+  "author": "christophe77",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christophe77/foldjs.git",
+    "directory": "packages/core"
+  },
+  "homepage": "https://github.com/christophe77/foldjs#readme",
+  "bugs": "https://github.com/christophe77/foldjs/issues",
+  "type": "module",
+  "sideEffects": [
+    "./dist/elements.js",
+    "./css/fold.css"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./elements": {
+      "types": "./dist/elements.d.ts",
+      "import": "./dist/elements.js",
+      "require": "./dist/elements.cjs"
+    },
+    "./devtools": {
+      "types": "./dist/devtools.d.ts",
+      "import": "./dist/devtools.js",
+      "require": "./dist/devtools.cjs"
+    },
+    "./css": "./css/fold.css"
+  },
+  "files": [
+    "dist",
+    "css"
+  ],
+  "keywords": [
+    "foldable",
+    "dual-screen",
+    "hinge",
+    "viewport-segments",
+    "device-posture",
+    "galaxy-fold",
+    "pixel-fold",
+    "responsive",
+    "web-components"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts src/elements.ts src/devtools.ts --format esm,cjs --dts --clean"
+  }
+}

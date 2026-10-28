@@ -1,0 +1,44 @@
+{
+  "name": "@foldjs/svelte",
+  "version": "0.1.0",
+  "description": "Svelte bindings for Fold.js: a `fold` store and `use:twoPane` / `use:foldWhen` actions.",
+  "license": "MIT",
+  "author": "christophe77",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christophe77/foldjs.git",
+    "directory": "packages/svelte"
+  },
+  "homepage": "https://github.com/christophe77/foldjs#readme",
+  "bugs": "https://github.com/christophe77/foldjs/issues",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "svelte": "./dist/index.js",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false,
+  "keywords": [
+    "foldable",
+    "svelte",
+    "dual-screen",
+    "hinge",
+    "foldjs"
+  ],
+  "peerDependencies": {
+    "foldjs": "^0.1.0",
+    "svelte": ">=4"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm,cjs --dts --clean --external svelte --external foldjs"
+  }
+}
