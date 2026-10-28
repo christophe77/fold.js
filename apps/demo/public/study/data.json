@@ -1,0 +1,1850 @@
+{
+ "summary": {
+  "date": "2026-10-28",
+  "device": "Samsung Galaxy Z Fold (690×829 CSS px, book and tabletop)",
+  "tested": 79,
+  "failed": 21,
+  "average": 83,
+  "median": 86,
+  "averageBook": 72,
+  "averageTabletop": 93,
+  "ready": 30,
+  "withCritical": 94,
+  "perfect": 0,
+  "consentBanners": 73,
+  "bannerOnHinge": {
+   "percent": 65,
+   "sites": 50,
+   "of": 77
+  },
+  "buckets": [
+   {
+    "label": "0-49",
+    "count": 0
+   },
+   {
+    "label": "50-59",
+    "count": 5
+   },
+   {
+    "label": "60-69",
+    "count": 7
+   },
+   {
+    "label": "70-79",
+    "count": 12
+   },
+   {
+    "label": "80-89",
+    "count": 31
+   },
+   {
+    "label": "90-100",
+    "count": 24
+   }
+  ],
+  "kinds": [
+   {
+    "kind": "interactive",
+    "label": "Button, link or field split by the hinge",
+    "percent": 94
+   },
+   {
+    "kind": "text",
+    "label": "Text crossing the hinge",
+    "percent": 68
+   },
+   {
+    "kind": "media",
+    "label": "Video or image cut in half",
+    "percent": 62
+   },
+   {
+    "kind": "scroller",
+    "label": "Carousel crossing the hinge",
+    "percent": 27
+   },
+   {
+    "kind": "modal",
+    "label": "Modal or banner centered on the hinge",
+    "percent": 23
+   },
+   {
+    "kind": "fixed",
+    "label": "Floating element over the hinge",
+    "percent": 11
+   }
+  ],
+  "categories": [
+   {
+    "name": "Travel & mobility",
+    "count": 3,
+    "average": 73
+   },
+   {
+    "name": "Shopping",
+    "count": 14,
+    "average": 79
+   },
+   {
+    "name": "Video, music & entertainment",
+    "count": 8,
+    "average": 79
+   },
+   {
+    "name": "News & media",
+    "count": 20,
+    "average": 83
+   },
+   {
+    "name": "Search & portals",
+    "count": 7,
+    "average": 84
+   },
+   {
+    "name": "Social & messaging",
+    "count": 11,
+    "average": 84
+   },
+   {
+    "name": "Tech & productivity",
+    "count": 10,
+    "average": 84
+   },
+   {
+    "name": "Finance & services",
+    "count": 5,
+    "average": 92
+   }
+  ]
+ },
+ "sites": [
+  {
+   "name": "shopify.com",
+   "label": "shopify.com",
+   "url": "https://www.shopify.com",
+   "category": "Tech & productivity",
+   "score": 51,
+   "book": 30,
+   "tabletop": 72,
+   "critical": 15,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Lancez-vous rapidementVous pourriez commencer à vendre dès demain."
+   }
+  },
+  {
+   "name": "ebay.com",
+   "label": "ebay.com",
+   "url": "https://www.ebay.com",
+   "category": "Shopping",
+   "score": 56,
+   "book": 49,
+   "tabletop": 62,
+   "critical": 11,
+   "warnings": 7,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Form field is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "twitch.tv",
+   "label": "twitch.tv",
+   "url": "https://www.twitch.tv",
+   "category": "Video, music & entertainment",
+   "score": 57,
+   "book": 46,
+   "tabletop": 67,
+   "critical": 13,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "modal"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "WORLDS - SWISS STAGE DAY 4"
+   }
+  },
+  {
+   "name": "washingtonpost.com",
+   "label": "washingtonpost.com",
+   "url": "https://www.washingtonpost.com",
+   "category": "News & media",
+   "score": 57,
+   "book": 49,
+   "tabletop": 64,
+   "critical": 12,
+   "warnings": 5,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "media",
+    "modal",
+    "fixed"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Accessibility statement"
+   }
+  },
+  {
+   "name": "allocine.fr",
+   "label": "allocine.fr",
+   "url": "https://www.allocine.fr",
+   "category": "Video, music & entertainment",
+   "score": 58,
+   "book": 37,
+   "tabletop": 79,
+   "critical": 12,
+   "warnings": 4,
+   "kinds": [
+    "interactive",
+    "modal",
+    "text",
+    "scroller"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "airbnb.com",
+   "label": "airbnb.com",
+   "url": "https://www.airbnb.com",
+   "category": "Travel & mobility",
+   "score": 61,
+   "book": 58,
+   "tabletop": 64,
+   "critical": 12,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "facebook.com",
+   "label": "facebook.com",
+   "url": "https://www.facebook.com",
+   "category": "Social & messaging",
+   "score": 62,
+   "book": 34,
+   "tabletop": 89,
+   "critical": 9,
+   "warnings": 7,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": "Français (France)"
+   }
+  },
+  {
+   "name": "temu.com",
+   "label": "temu.com",
+   "url": "https://www.temu.com",
+   "category": "Shopping",
+   "score": 63,
+   "book": 55,
+   "tabletop": 71,
+   "critical": 10,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "modal",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": "pompe aspirante"
+   }
+  },
+  {
+   "name": "google.com",
+   "label": "google.com",
+   "url": "https://www.google.com",
+   "category": "Search & portals",
+   "score": 67,
+   "book": 40,
+   "tabletop": 94,
+   "critical": 11,
+   "warnings": 0,
+   "kinds": [
+    "interactive"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Form field is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "apple.com",
+   "label": "apple.com",
+   "url": "https://www.apple.com",
+   "category": "Shopping",
+   "score": 67,
+   "book": 54,
+   "tabletop": 80,
+   "critical": 6,
+   "warnings": 8,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "booking.com",
+   "label": "booking.com",
+   "url": "https://www.booking.com",
+   "category": "Travel & mobility",
+   "score": 67,
+   "book": 37,
+   "tabletop": 97,
+   "critical": 6,
+   "warnings": 10,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Vol + hôtel"
+   }
+  },
+  {
+   "name": "aliexpress.com",
+   "label": "aliexpress.com",
+   "url": "https://www.aliexpress.com",
+   "category": "Shopping",
+   "score": 67,
+   "book": 39,
+   "tabletop": 94,
+   "critical": 9,
+   "warnings": 4,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "text",
+    "media"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Pièces"
+   }
+  },
+  {
+   "name": "x.com",
+   "label": "x.com",
+   "url": "https://x.com",
+   "category": "Social & messaging",
+   "score": 70,
+   "book": 46,
+   "tabletop": 93,
+   "critical": 7,
+   "warnings": 6,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": "S’inscrire avec un numéro de téléphone"
+   }
+  },
+  {
+   "name": "lefigaro.fr",
+   "label": "lefigaro.fr",
+   "url": "https://www.lefigaro.fr",
+   "category": "News & media",
+   "score": 70,
+   "book": 51,
+   "tabletop": 88,
+   "critical": 8,
+   "warnings": 4,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "text",
+    "media",
+    "fixed"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "20minutes.fr",
+   "label": "20minutes.fr",
+   "url": "https://www.20minutes.fr",
+   "category": "News & media",
+   "score": 72,
+   "book": 46,
+   "tabletop": 97,
+   "critical": 6,
+   "warnings": 7,
+   "kinds": [
+    "interactive",
+    "modal",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "20 Minutes : Actualités et infos en direct"
+   }
+  },
+  {
+   "name": "dailymail.co.uk",
+   "label": "dailymail.co.uk",
+   "url": "https://www.dailymail.co.uk",
+   "category": "News & media",
+   "score": 73,
+   "book": 52,
+   "tabletop": 94,
+   "critical": 5,
+   "warnings": 8,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Healey hits banks in Budget to offer 'breathing space' on energy bills"
+   }
+  },
+  {
+   "name": "carrefour.fr",
+   "label": "carrefour.fr",
+   "url": "https://www.carrefour.fr",
+   "category": "Shopping",
+   "score": 75,
+   "book": 57,
+   "tabletop": 93,
+   "critical": 5,
+   "warnings": 6,
+   "kinds": [
+    "interactive",
+    "fixed",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": "Demander à Hopla"
+   }
+  },
+  {
+   "name": "shein.com",
+   "label": "shein.com",
+   "url": "https://www.shein.com",
+   "category": "Shopping",
+   "score": 78,
+   "book": 55,
+   "tabletop": 100,
+   "critical": 5,
+   "warnings": 5,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "text"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Trends"
+   }
+  },
+  {
+   "name": "foxnews.com",
+   "label": "foxnews.com",
+   "url": "https://www.foxnews.com",
+   "category": "News & media",
+   "score": 78,
+   "book": 55,
+   "tabletop": 100,
+   "critical": 7,
+   "warnings": 1,
+   "kinds": [
+    "interactive",
+    "scroller"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "BENEATH THE SURFACE"
+   }
+  },
+  {
+   "name": "cdiscount.com",
+   "label": "cdiscount.com",
+   "url": "https://www.cdiscount.com",
+   "category": "Shopping",
+   "score": 78,
+   "book": 58,
+   "tabletop": 97,
+   "critical": 5,
+   "warnings": 5,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Form field is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "marmiton.org",
+   "label": "marmiton.org",
+   "url": "https://www.marmiton.org",
+   "category": "Video, music & entertainment",
+   "score": 78,
+   "book": 58,
+   "tabletop": 97,
+   "critical": 6,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "modal",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Consultez nos dernières actus"
+   }
+  },
+  {
+   "name": "github.com",
+   "label": "github.com",
+   "url": "https://github.com",
+   "category": "Tech & productivity",
+   "score": 79,
+   "book": 67,
+   "tabletop": 91,
+   "critical": 3,
+   "warnings": 8,
+   "kinds": [
+    "interactive",
+    "text",
+    "media",
+    "fixed"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "usatoday.com",
+   "label": "usatoday.com",
+   "url": "https://www.usatoday.com",
+   "category": "News & media",
+   "score": 79,
+   "book": 70,
+   "tabletop": 88,
+   "critical": 7,
+   "warnings": 0,
+   "kinds": [
+    "interactive"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Politics"
+   }
+  },
+  {
+   "name": "nbcnews.com",
+   "label": "nbcnews.com",
+   "url": "https://www.nbcnews.com",
+   "category": "News & media",
+   "score": 79,
+   "book": 58,
+   "tabletop": 100,
+   "critical": 5,
+   "warnings": 4,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "media",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "BREAKING: At least 64 people killed and 80 injured after two trains collide in S"
+   }
+  },
+  {
+   "name": "yahoo.com",
+   "label": "yahoo.com",
+   "url": "https://www.yahoo.com",
+   "category": "Search & portals",
+   "score": 80,
+   "book": 60,
+   "tabletop": 100,
+   "critical": 4,
+   "warnings": 5,
+   "kinds": [
+    "interactive",
+    "media",
+    "scroller",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "theguardian.com",
+   "label": "theguardian.com",
+   "url": "https://www.theguardian.com",
+   "category": "News & media",
+   "score": 80,
+   "book": 71,
+   "tabletop": 88,
+   "critical": 5,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "stripe.com",
+   "label": "stripe.com",
+   "url": "https://stripe.com",
+   "category": "Tech & productivity",
+   "score": 80,
+   "book": 71,
+   "tabletop": 89,
+   "critical": 1,
+   "warnings": 10,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "S'inscrire avec Google"
+   }
+  },
+  {
+   "name": "linkedin.com",
+   "label": "linkedin.com",
+   "url": "https://www.linkedin.com",
+   "category": "Social & messaging",
+   "score": 81,
+   "book": 66,
+   "tabletop": 96,
+   "critical": 3,
+   "warnings": 6,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "free.fr",
+   "label": "free.fr",
+   "url": "https://www.free.fr",
+   "category": "Search & portals",
+   "score": 81,
+   "book": 69,
+   "tabletop": 93,
+   "critical": 4,
+   "warnings": 4,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "francetvinfo.fr",
+   "label": "francetvinfo.fr",
+   "url": "https://www.francetvinfo.fr",
+   "category": "News & media",
+   "score": 82,
+   "book": 70,
+   "tabletop": 94,
+   "critical": 5,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "fixed",
+    "modal"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Mobilisation des lycéens"
+   }
+  },
+  {
+   "name": "ikea.com",
+   "label": "ikea.com",
+   "url": "https://www.ikea.com",
+   "category": "Shopping",
+   "score": 84,
+   "book": 84,
+   "tabletop": 84,
+   "critical": 4,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Step into autumn styleTime to get cosy"
+   }
+  },
+  {
+   "name": "vinted.fr",
+   "label": "vinted.fr",
+   "url": "https://www.vinted.fr",
+   "category": "Shopping",
+   "score": 84,
+   "book": 69,
+   "tabletop": 99,
+   "critical": 4,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Form field is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "boursorama.com",
+   "label": "boursorama.com",
+   "url": "https://www.boursorama.com",
+   "category": "Finance & services",
+   "score": 84,
+   "book": 70,
+   "tabletop": 97,
+   "critical": 4,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "modal",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Investir à 0€ de frais de courtage sur plus de 45 000 produitsInvestir à 0€ de f"
+   }
+  },
+  {
+   "name": "en.m.wikipedia.org",
+   "label": "wikipedia.org",
+   "url": "https://en.m.wikipedia.org/wiki/Main_Page",
+   "category": "Search & portals",
+   "score": 85,
+   "book": 69,
+   "tabletop": 100,
+   "critical": 2,
+   "warnings": 6,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Form field is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "tiktok.com",
+   "label": "tiktok.com",
+   "url": "https://www.tiktok.com",
+   "category": "Social & messaging",
+   "score": 85,
+   "book": 73,
+   "tabletop": 97,
+   "critical": 3,
+   "warnings": 4,
+   "kinds": [
+    "interactive",
+    "media",
+    "text"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": "Ouvrir l'application"
+   }
+  },
+  {
+   "name": "samsung.com",
+   "label": "samsung.com",
+   "url": "https://www.samsung.com",
+   "category": "Shopping",
+   "score": 85,
+   "book": 83,
+   "tabletop": 87,
+   "critical": 3,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "fixed",
+    "media",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "whatsapp.com",
+   "label": "whatsapp.com",
+   "url": "https://www.whatsapp.com",
+   "category": "Social & messaging",
+   "score": 85,
+   "book": 72,
+   "tabletop": 98,
+   "critical": 2,
+   "warnings": 5,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "huffpost.com",
+   "label": "huffpost.com",
+   "url": "https://www.huffpost.com",
+   "category": "News & media",
+   "score": 85,
+   "book": 69,
+   "tabletop": 100,
+   "critical": 5,
+   "warnings": 0,
+   "kinds": [
+    "interactive",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "HUFFPOST"
+   }
+  },
+  {
+   "name": "deezer.com",
+   "label": "deezer.com",
+   "url": "https://www.deezer.com",
+   "category": "Video, music & entertainment",
+   "score": 85,
+   "book": 73,
+   "tabletop": 97,
+   "critical": 2,
+   "warnings": 6,
+   "kinds": [
+    "interactive",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "S'inscrire gratuitement"
+   }
+  },
+  {
+   "name": "reddit.com",
+   "label": "reddit.com",
+   "url": "https://www.reddit.com",
+   "category": "Social & messaging",
+   "score": 86,
+   "book": 80,
+   "tabletop": 92,
+   "critical": 4,
+   "warnings": 0,
+   "kinds": [
+    "interactive",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": ".snoo-cls-11,.snoo-cls-9{stroke-width:0}.snoo-cls-9{fill:#842123}.snoo-cls-11{fi"
+   }
+  },
+  {
+   "name": "bbc.com",
+   "label": "bbc.com",
+   "url": "https://www.bbc.com",
+   "category": "News & media",
+   "score": 86,
+   "book": 78,
+   "tabletop": 94,
+   "critical": 3,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "media",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "British Broadcasting Corporation"
+   }
+  },
+  {
+   "name": "netflix.com",
+   "label": "netflix.com",
+   "url": "https://www.netflix.com",
+   "category": "Video, music & entertainment",
+   "score": 87,
+   "book": 78,
+   "tabletop": 96,
+   "critical": 1,
+   "warnings": 6,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Form field is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "pinterest.com",
+   "label": "pinterest.com",
+   "url": "https://www.pinterest.com",
+   "category": "Social & messaging",
+   "score": 87,
+   "book": 75,
+   "tabletop": 99,
+   "critical": 3,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "duckduckgo.com",
+   "label": "duckduckgo.com",
+   "url": "https://duckduckgo.com",
+   "category": "Search & portals",
+   "score": 87,
+   "book": 73,
+   "tabletop": 100,
+   "critical": 3,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "text"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": "Rechercher"
+   }
+  },
+  {
+   "name": "nike.com",
+   "label": "nike.com",
+   "url": "https://www.nike.com",
+   "category": "Shopping",
+   "score": 87,
+   "book": 87,
+   "tabletop": 86,
+   "critical": 4,
+   "warnings": 0,
+   "kinds": [
+    "interactive",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "notion.com",
+   "label": "notion.com",
+   "url": "https://www.notion.com",
+   "category": "Tech & productivity",
+   "score": 87,
+   "book": 76,
+   "tabletop": 97,
+   "critical": 1,
+   "warnings": 7,
+   "kinds": [
+    "interactive",
+    "text"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "duolingo.com",
+   "label": "duolingo.com",
+   "url": "https://www.duolingo.com",
+   "category": "Video, music & entertainment",
+   "score": 87,
+   "book": 74,
+   "tabletop": 99,
+   "critical": 3,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "wired.com",
+   "label": "wired.com",
+   "url": "https://www.wired.com",
+   "category": "News & media",
+   "score": 87,
+   "book": 77,
+   "tabletop": 97,
+   "critical": 2,
+   "warnings": 4,
+   "kinds": [
+    "interactive",
+    "text",
+    "media",
+    "fixed"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "THE WIRED APP IS HERE"
+   }
+  },
+  {
+   "name": "cnet.com",
+   "label": "cnet.com",
+   "url": "https://www.cnet.com",
+   "category": "News & media",
+   "score": 87,
+   "book": 88,
+   "tabletop": 85,
+   "critical": 4,
+   "warnings": 1,
+   "kinds": [
+    "interactive",
+    "text"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Your GuideTo a Better Future"
+   }
+  },
+  {
+   "name": "paypal.com",
+   "label": "paypal.com",
+   "url": "https://www.paypal.com",
+   "category": "Finance & services",
+   "score": 88,
+   "book": 75,
+   "tabletop": 100,
+   "critical": 2,
+   "warnings": 4,
+   "kinds": [
+    "interactive",
+    "text",
+    "fixed",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Professionnel"
+   }
+  },
+  {
+   "name": "canva.com",
+   "label": "canva.com",
+   "url": "https://www.canva.com",
+   "category": "Tech & productivity",
+   "score": 88,
+   "book": 78,
+   "tabletop": 97,
+   "critical": 2,
+   "warnings": 4,
+   "kinds": [
+    "interactive",
+    "modal",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "zoom.us",
+   "label": "zoom.us",
+   "url": "https://zoom.us",
+   "category": "Tech & productivity",
+   "score": 88,
+   "book": 76,
+   "tabletop": 100,
+   "critical": 3,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Découvrir My Notes Une prise de notes assistée par l’IA disponible sur toutes vo"
+   }
+  },
+  {
+   "name": "microsoft.com",
+   "label": "microsoft.com",
+   "url": "https://www.microsoft.com",
+   "category": "Tech & productivity",
+   "score": 89,
+   "book": 80,
+   "tabletop": 98,
+   "critical": 2,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "theverge.com",
+   "label": "theverge.com",
+   "url": "https://www.theverge.com",
+   "category": "News & media",
+   "score": 89,
+   "book": 78,
+   "tabletop": 99,
+   "critical": 2,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "fixed",
+    "text",
+    "modal",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": "Latest"
+   }
+  },
+  {
+   "name": "walmart.com",
+   "label": "walmart.com",
+   "url": "https://www.walmart.com",
+   "category": "Shopping",
+   "score": 89,
+   "book": 84,
+   "tabletop": 93,
+   "critical": 3,
+   "warnings": 1,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "media"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Form field is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "instagram.com",
+   "label": "instagram.com",
+   "url": "https://www.instagram.com",
+   "category": "Social & messaging",
+   "score": 90,
+   "book": 88,
+   "tabletop": 91,
+   "critical": 1,
+   "warnings": 5,
+   "kinds": [
+    "interactive",
+    "text",
+    "modal"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Reels"
+   }
+  },
+  {
+   "name": "open.spotify.com",
+   "label": "spotify.com",
+   "url": "https://open.spotify.com",
+   "category": "Video, music & entertainment",
+   "score": 90,
+   "book": 79,
+   "tabletop": 100,
+   "critical": 1,
+   "warnings": 5,
+   "kinds": [
+    "interactive",
+    "text",
+    "scroller"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": "Voir tous les abonnements"
+   }
+  },
+  {
+   "name": "slack.com",
+   "label": "slack.com",
+   "url": "https://slack.com",
+   "category": "Tech & productivity",
+   "score": 90,
+   "book": 79,
+   "tabletop": 100,
+   "critical": 2,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Découvrir"
+   }
+  },
+  {
+   "name": "dropbox.com",
+   "label": "dropbox.com",
+   "url": "https://www.dropbox.com",
+   "category": "Tech & productivity",
+   "score": 90,
+   "book": 86,
+   "tabletop": 94,
+   "critical": 2,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Essayer Dropbox gratuitement"
+   }
+  },
+  {
+   "name": "ouest-france.fr",
+   "label": "ouest-france.fr",
+   "url": "https://www.ouest-france.fr",
+   "category": "News & media",
+   "score": 90,
+   "book": 81,
+   "tabletop": 99,
+   "critical": 3,
+   "warnings": 0,
+   "kinds": [
+    "interactive",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "uber.com",
+   "label": "uber.com",
+   "url": "https://www.uber.com",
+   "category": "Travel & mobility",
+   "score": 91,
+   "book": 88,
+   "tabletop": 94,
+   "critical": 2,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Connectez-vous pour voir votre activité"
+   }
+  },
+  {
+   "name": "amazon.com",
+   "label": "amazon.com",
+   "url": "https://www.amazon.com",
+   "category": "Shopping",
+   "score": 91,
+   "book": 85,
+   "tabletop": 97,
+   "critical": 2,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "modal"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Form field is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "discord.com",
+   "label": "discord.com",
+   "url": "https://discord.com",
+   "category": "Social & messaging",
+   "score": 91,
+   "book": 81,
+   "tabletop": 100,
+   "critical": 2,
+   "warnings": 2,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Download for Windows"
+   }
+  },
+  {
+   "name": "techcrunch.com",
+   "label": "techcrunch.com",
+   "url": "https://techcrunch.com",
+   "category": "News & media",
+   "score": 92,
+   "book": 87,
+   "tabletop": 97,
+   "critical": 1,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "text",
+    "modal",
+    "media"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Jio shares surge 21% in market debut after blockbuster India IPO"
+   }
+  },
+  {
+   "name": "quora.com",
+   "label": "quora.com",
+   "url": "https://www.quora.com",
+   "category": "Social & messaging",
+   "score": 92,
+   "book": 83,
+   "tabletop": 100,
+   "critical": 1,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Politique de confidentialité"
+   }
+  },
+  {
+   "name": "lemonde.fr",
+   "label": "lemonde.fr",
+   "url": "https://www.lemonde.fr",
+   "category": "News & media",
+   "score": 92,
+   "book": 86,
+   "tabletop": 97,
+   "critical": 1,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "scroller",
+    "modal",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "La collision entre deux trains en Espagne a fait au moins 64 morts, selon un nou"
+   }
+  },
+  {
+   "name": "youtube.com",
+   "label": "youtube.com",
+   "url": "https://www.youtube.com",
+   "category": "Video, music & entertainment",
+   "score": 93,
+   "book": 88,
+   "tabletop": 97,
+   "critical": 1,
+   "warnings": 3,
+   "kinds": [
+    "interactive",
+    "text"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": "Rechercher sur YouTube"
+   }
+  },
+  {
+   "name": "edition.cnn.com",
+   "label": "cnn.com",
+   "url": "https://edition.cnn.com",
+   "category": "News & media",
+   "score": 93,
+   "book": 91,
+   "tabletop": 94,
+   "critical": 2,
+   "warnings": 1,
+   "kinds": [
+    "interactive",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "• Live Updates Getty Images/AP"
+   }
+  },
+  {
+   "name": "laposte.fr",
+   "label": "laposte.fr",
+   "url": "https://www.laposte.fr",
+   "category": "Finance & services",
+   "score": 93,
+   "book": 87,
+   "tabletop": 98,
+   "critical": 0,
+   "warnings": 3,
+   "kinds": [
+    "text",
+    "modal",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Text crosses the hinge",
+    "text": "Suivi, courrier, colis avec l'application La Poste"
+   }
+  },
+  {
+   "name": "bing.com",
+   "label": "bing.com",
+   "url": "https://www.bing.com",
+   "category": "Search & portals",
+   "score": 94,
+   "book": 88,
+   "tabletop": 100,
+   "critical": 2,
+   "warnings": 0,
+   "kinds": [
+    "interactive"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Form field is split by the hinge",
+    "text": ""
+   }
+  },
+  {
+   "name": "weather.com",
+   "label": "weather.com",
+   "url": "https://weather.com",
+   "category": "News & media",
+   "score": 94,
+   "book": 100,
+   "tabletop": 88,
+   "critical": 2,
+   "warnings": 0,
+   "kinds": [
+    "interactive"
+   ],
+   "consent": true,
+   "top": null
+  },
+  {
+   "name": "orange.fr",
+   "label": "orange.fr",
+   "url": "https://www.orange.fr",
+   "category": "Search & portals",
+   "score": 94,
+   "book": 88,
+   "tabletop": 100,
+   "critical": 2,
+   "warnings": 0,
+   "kinds": [
+    "interactive"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Déjà client ? Identifiez-vous : on vous propose des prix, et des avantages exclu"
+   }
+  },
+  {
+   "name": "hm.com",
+   "label": "hm.com",
+   "url": "https://www.hm.com",
+   "category": "Shopping",
+   "score": 95,
+   "book": 89,
+   "tabletop": 100,
+   "critical": 1,
+   "warnings": 1,
+   "kinds": [
+    "interactive",
+    "modal",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Button is split by the hinge",
+    "text": "Les pièces phares de la saison"
+   }
+  },
+  {
+   "name": "figma.com",
+   "label": "figma.com",
+   "url": "https://www.figma.com",
+   "category": "Tech & productivity",
+   "score": 96,
+   "book": 94,
+   "tabletop": 97,
+   "critical": 0,
+   "warnings": 3,
+   "kinds": [
+    "modal",
+    "text"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Modal is centered on the hinge",
+    "text": "Ce site Web utilise des cookies, des pixels invisibles et du stockage local à de"
+   }
+  },
+  {
+   "name": "service-public.fr",
+   "label": "service-public.fr",
+   "url": "https://www.service-public.fr",
+   "category": "Finance & services",
+   "score": 96,
+   "book": 93,
+   "tabletop": 99,
+   "critical": 0,
+   "warnings": 2,
+   "kinds": [
+    "text",
+    "media"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Text crosses the hinge",
+    "text": "Bienvenue sur le site officiel d’information et de démarches administratives"
+   }
+  },
+  {
+   "name": "medium.com",
+   "label": "medium.com",
+   "url": "https://medium.com",
+   "category": "Social & messaging",
+   "score": 97,
+   "book": 94,
+   "tabletop": 100,
+   "critical": 0,
+   "warnings": 2,
+   "kinds": [
+    "text"
+   ],
+   "consent": false,
+   "top": {
+    "message": "Text crosses the hinge",
+    "text": "Human stories & ideas"
+   }
+  },
+  {
+   "name": "espn.com",
+   "label": "espn.com",
+   "url": "https://www.espn.com",
+   "category": "News & media",
+   "score": 97,
+   "book": 100,
+   "tabletop": 94,
+   "critical": 1,
+   "warnings": 0,
+   "kinds": [
+    "interactive"
+   ],
+   "consent": true,
+   "top": null
+  },
+  {
+   "name": "doctolib.fr",
+   "label": "doctolib.fr",
+   "url": "https://www.doctolib.fr",
+   "category": "Finance & services",
+   "score": 97,
+   "book": 94,
+   "tabletop": 100,
+   "critical": 1,
+   "warnings": 0,
+   "kinds": [
+    "interactive"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Link is split by the hinge",
+    "text": "Documents"
+   }
+  },
+  {
+   "name": "wwws.airfrance.fr",
+   "label": "airfrance.fr",
+   "url": "https://wwws.airfrance.fr",
+   "category": "Other",
+   "score": 97,
+   "book": 97,
+   "tabletop": 97,
+   "critical": 0,
+   "warnings": 2,
+   "kinds": [
+    "modal"
+   ],
+   "consent": true,
+   "top": {
+    "message": "Modal is centered on the hinge",
+    "text": "Aller au contenu principal Acheter un billetS'enregistrerMes RéservationsFlying "
+   }
+  }
+ ],
+ "failed": [
+  {
+   "name": "stackoverflow.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "tripadvisor.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "expedia.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "nytimes.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "reuters.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "forbes.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "imdb.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "etsy.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "bestbuy.com",
+   "reason": "country selection page"
+  },
+  {
+   "name": "target.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "adidas.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "zara.com",
+   "reason": "country selection page"
+  },
+  {
+   "name": "wordpress.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "bloomberg.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "zillow.com",
+   "reason": "blank page"
+  },
+  {
+   "name": "leboncoin.fr",
+   "reason": "bot check"
+  },
+  {
+   "name": "fnac.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "sncf-connect.com",
+   "reason": "bot check"
+  },
+  {
+   "name": "decathlon.fr",
+   "reason": "bot check"
+  },
+  {
+   "name": "leroymerlin.fr",
+   "reason": "bot check"
+  },
+  {
+   "name": "blablacar.fr",
+   "reason": "bot check"
+  }
+ ]
+}

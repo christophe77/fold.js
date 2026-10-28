@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>94% of popular websites split a button across a foldable's hinge · fold.js study</title>
+    <meta name="description" content="We audited 79 of the most visited websites on a Samsung Galaxy Z Fold. 94% put a button, link or form field under the hinge, 70% are not foldable-ready, and the average score in book posture is 72/100." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href="https://christophe77.github.io/foldjs/study.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="theme-color" content="#0f0f13" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="fold.js" />
+    <meta property="og:title" content="94% of popular websites split a button across a foldable's hinge" />
+    <meta property="og:description" content="79 of the most visited websites audited on a Samsung Galaxy Z Fold: scores, worst offenders, and how to fix it." />
+    <meta property="og:url" content="https://christophe77.github.io/foldjs/study.html" />
+    <meta property="og:image" content="https://christophe77.github.io/foldjs/study/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="94% of popular websites split a button across a foldable's hinge" />
+    <meta name="twitter:description" content="79 of the most visited websites audited on a Samsung Galaxy Z Fold." />
+    <meta name="twitter:image" content="https://christophe77.github.io/foldjs/study/og.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "94% of popular websites split a button across a foldable phone's hinge",
+            "description": "An audit of 79 of the most visited websites on a Samsung Galaxy Z Fold in book and tabletop postures, using the open-source fold.js audit tool.",
+            "datePublished": "2026-10-28",
+            "author": { "@type": "Person", "name": "christophe77", "url": "https://github.com/christophe77" },
+            "publisher": { "@type": "Organization", "name": "fold.js", "url": "https://christophe77.github.io/foldjs/" },
+            "image": "https://christophe77.github.io/foldjs/study/og.png",
+            "mainEntityOfPage": "https://christophe77.github.io/foldjs/study.html"
+          },
+          {
+            "@type": "Dataset",
+            "name": "Foldable-readiness of popular websites (October 2026)",
+            "description": "Foldable-ready scores (0 to 100) of 79 popular websites on a Samsung Galaxy Z Fold, in book and tabletop postures, with the elements found under the hinge.",
+            "url": "https://christophe77.github.io/foldjs/study.html",
+            "distribution": { "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": "https://christophe77.github.io/foldjs/study/data.json" },
+            "creator": { "@type": "Person", "name": "christophe77" },
+            "license": "https://opensource.org/licenses/MIT",
+            "temporalCoverage": "2026-10-28"
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <main>
+      <nav class="top">
+        <a class="brand" href="./">fold<span>.js</span></a>
+        <a href="https://github.com/christophe77/foldjs">GitHub</a>
+      </nav>
+
+      <p class="muted">Study · <span id="date">October 28, 2026</span></p>
+      <h1><em>94%</em> of popular websites split a button across a foldable's hinge</h1>
+      <p class="lede">
+        We opened <span id="tested">79</span> of the most visited websites on a simulated Samsung Galaxy Z Fold and checked what lands under the hinge.
+        Even Google's search box is cut in half. Here is what we found, and how to fix it.
+      </p>
+
+      <section class="kpis" aria-label="Key numbers">
+        <div class="kpi"><b id="kpi-critical">94%</b><span>split a button, link or form field with the hinge</span></div>
+        <div class="kpi"><b id="kpi-failing">70%</b><span>are not foldable-ready (score below 90/100)</span></div>
+        <div class="kpi"><b id="kpi-book">72</b><span>average score out of 100 in book posture</span></div>
+        <div class="kpi"><b id="kpi-banner">65%</b><span>showed a cookie banner sitting on the hinge</span></div>
+      </section>
+
+      <h2>Scores are mediocre across the board</h2>
+      <p class="muted">No site reached 100. Book posture (screen unfolded like a book, vertical hinge) is where most sites break: the hinge runs down the middle of centered layouts. Tabletop posture (half-folded like a laptop) does better, at 93 on average.</p>
+      <div class="panel" id="chart-scores"></div>
+
+      <h2>What breaks</h2>
+      <p class="muted">Share of sites with at least one issue of each kind, in either posture.</p>
+      <div class="panel" id="chart-kinds"></div>
+
+      <h2>By category</h2>
+      <p class="muted">Average foldable-ready score. Public services and banking do best, travel and shopping worst.</p>
+      <div class="panel" id="chart-categories"></div>
+
+      <h2>Hall of shame</h2>
+      <p class="muted">The lowest scores. Red and orange outlines are the elements under the hinge, as reported by the audit.</p>
+      <div class="cards" id="shame"></div>
+
+      <h2>Hall of fame</h2>
+      <div class="cards" id="fame"></div>
+
+      <section class="cta">
+        <h2>Test your own site</h2>
+        <p>The audit behind this study is open source. Run it on your site, your staging server or in CI:</p>
+        <pre><code>npx foldjs audit https://your-site.com --dismiss-consent</code></pre>
+        <p>
+          Then fix it with <a href="https://github.com/christophe77/foldjs#readme">fold.js</a>: two-pane layouts for React, Vue, Svelte, Solid and Web Components,
+          or one script tag that <a href="legacy.html">retrofits an existing site</a>.
+        </p>
+      </section>
+
+      <h2>All results</h2>
+      <div class="table-tools">
+        <span class="muted">Click a column to sort. <a href="study/data.json">Download the data (JSON)</a>.</span>
+        <input id="search" type="search" placeholder="Filter by site or category" aria-label="Filter results" />
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th><button data-key="label">Site</button></th>
+              <th><button data-key="category">Category</button></th>
+              <th class="num" aria-sort="ascending"><button data-key="score">Score</button></th>
+              <th class="num"><button data-key="book">Book</button></th>
+              <th class="num"><button data-key="tabletop">Tabletop</button></th>
+              <th class="num"><button data-key="critical">Critical</button></th>
+              <th>Worst issue (book)</th>
+            </tr>
+          </thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </div>
+
+      <h2>Methodology</h2>
+      <ul class="method">
+        <li>Tool: <code>npx foldjs audit</code> (fold.js 0.2), headless Chrome with an Android user agent, on October 28, 2026, from France.</li>
+        <li>Device: Samsung Galaxy Z Fold inner screen, 690×829 CSS pixels in book posture and 829×690 in tabletop posture, with a zero-width fold line as on real devices.</li>
+        <li>What is checked: the first screen of each home page. An issue is an element whose visible part crosses the fold line. Split buttons, links and form fields are critical; text, modals, floating elements, videos and carousels are warnings; images are minor.</li>
+        <li>Score: 100 minus 6 per critical issue, 3 per warning and 1 per minor issue, per posture; the site score is the average of both postures. 90 and above counts as foldable-ready.</li>
+        <li>Cookie banners: a first pass was run as a normal visitor (that is where the 65% figure comes from). The results above come from a second pass where the audit closed consent banners automatically, rejecting when possible. About a dozen banners could not be closed and are part of the result.</li>
+        <li>Sites list: 100 of the most visited global and French websites. <span id="failed">21 sites showed a bot check or a country selection page instead of the real site and are left out.</span></li>
+        <li>Limits: scores reflect one moment, one location and one device size. Sites change often; run the audit yourself to check today's result.</li>
+      </ul>
+
+      <footer>
+        Made with <a href="https://github.com/christophe77/foldjs">fold.js</a>, the open-source toolkit for foldable phones. Data under MIT license.
+      </footer>
+    </main>
+    <script type="module" src="/src/study.ts"></script>
+  </body>
+</html>

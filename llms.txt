@@ -29,6 +29,10 @@ Tests the page in headless Chrome on Samsung Galaxy Z Fold and Google Pixel Fold
 
 Automatic, reversible fixes on foldables: open modals move to one screen, fixed tab bars get an empty slot under the hinge, videos and iframes stay on one screen. Opt-in hints: `data-fold-columns` (two text columns around the hinge), `data-fold-avoid` (push an element off the hinge), `data-fold-ignore` (never touch). Options: `autoFix({ modals, bars, media, columns, avoid, gutter })`.
 
+## Study: popular websites on foldable phones (October 2026)
+
+fold.js audited 79 of the most visited websites on a Samsung Galaxy Z Fold: 94% split a button, link or form field across the hinge (including Google's search box), 70% are not foldable-ready (score below 90/100), the average score in book posture is 72/100, and 65% showed a cookie banner sitting on the hinge. Full results: https://christophe77.github.io/foldjs/study.html (data: https://christophe77.github.io/foldjs/study/data.json).
+
 ## Usage
 
 React:
@@ -75,6 +79,7 @@ fold.js replaces Microsoft's archived `react-foldable` for the web; it does not 
 ## Links
 
 - [Live demo with simulator](https://christophe77.github.io/foldjs/)
+- [Study: 94% of popular websites split a button across the hinge](https://christophe77.github.io/foldjs/study.html)
 - [foldjs/auto on a typical mobile site](https://christophe77.github.io/foldjs/legacy.html)
 - [npm: @foldjs/cli](https://www.npmjs.com/package/@foldjs/cli)
 - [README and full documentation](https://github.com/christophe77/foldjs#readme)

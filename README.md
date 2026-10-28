@@ -7,6 +7,8 @@
 
 **fold.js is an open-source JavaScript library that makes web apps work properly on foldable phones** such as the Samsung Galaxy Z Fold, Google Pixel Fold, Honor Magic V or Microsoft Surface Duo. It detects the hinge and the device posture (flat, book, tabletop), and gives you two-pane layouts that never put content under the hinge. It works with React, Vue, Svelte, Solid, Angular, Astro or plain HTML, weighs about 2 kB, and ships with a built-in foldable simulator so you can build without owning a device.
 
+> 📊 **New study:** [94% of popular websites split a button across a foldable's hinge](https://christophe77.github.io/foldjs/study.html) (79 sites audited on a Galaxy Z Fold, including Google, Amazon and Facebook).
+
 ### [▶ Try the live demo](https://christophe77.github.io/foldjs/) (works on desktop: the simulator is built in) · [See an existing site fixed in one line](https://christophe77.github.io/foldjs/legacy.html)
 
 ```bash
@@ -184,6 +186,7 @@ It opens the page in headless Chrome at the real inner-screen sizes of the Samsu
 | `--posture` | `all` | `book`, `tabletop` or `all` |
 | `--out` | `foldjs-report` | Report folder (`report.html` + `report.json`) |
 | `--min-score` | | Exit with code 1 below this score, for CI |
+| `--dismiss-consent` | | Close cookie banners (rejecting when possible) before the audit |
 | `--json` | | Print the result as JSON |
 | `--browser` | auto | Chrome, Edge or Chromium path (or `CHROME_PATH`). No browser is downloaded. |
 

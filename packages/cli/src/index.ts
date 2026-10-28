@@ -9,6 +9,7 @@ import { badgeMarkdown, renderReport } from "./report.js";
 export { audit, DEVICES } from "./audit.js";
 export type { AuditOptions, AuditResult, Device, Issue, Posture, ScenarioResult } from "./audit.js";
 export { badgeMarkdown, badgeUrl, renderReport } from "./report.js";
+export { findBrowser } from "./browser.js";
 
 const HELP = `
 fold.js audit: find what breaks on foldable phones
@@ -22,6 +23,7 @@ Options
   --out <dir>         report folder (default: ./foldjs-report)
   --min-score <n>     exit with code 1 if the score is below n (for CI)
   --json              print the result as JSON instead of the summary
+  --dismiss-consent   close cookie banners (rejecting when possible) before the audit
   --browser <path>    Chrome, Edge or Chromium executable (or set CHROME_PATH)
   --wait <ms>         extra wait after load and posture change (default: 600)
   --timeout <ms>      page load timeout (default: 45000)
@@ -59,6 +61,7 @@ export async function run(argv: string[]): Promise<number> {
         out: { type: "string", default: "foldjs-report" },
         "min-score": { type: "string" },
         json: { type: "boolean", default: false },
+        "dismiss-consent": { type: "boolean", default: false },
         browser: { type: "string" },
         wait: { type: "string", default: "600" },
         timeout: { type: "string", default: "45000" },
@@ -102,6 +105,7 @@ export async function run(argv: string[]): Promise<number> {
       postures,
       wait: Number(v.wait),
       timeout: Number(v.timeout),
+      dismissConsent: v["dismiss-consent"],
       onProgress: v.json ? undefined : (m) => console.log(dim(`  … ${m}`)),
     });
   } catch (e) {

@@ -3,3 +3,5 @@ dist
 *.log
 .DS_Store
 packages/*/README.md
+scripts/study/shots
+scripts/study/*.log
