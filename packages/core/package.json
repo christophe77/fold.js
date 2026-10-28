@@ -1,6 +1,6 @@
 {
   "name": "foldjs",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Make any web app foldable-ready: detect the hinge and posture (book, tabletop) of foldable phones and build two-pane layouts. Framework-agnostic core, CSS layer, Web Components and a built-in foldable simulator.",
   "license": "MIT",
   "author": "christophe77",
@@ -15,6 +15,8 @@
   "sideEffects": [
     "./dist/elements.js",
     "./dist/elements.cjs",
+    "./dist/auto.global.js",
+    "./dist/audit.global.js",
     "./css/fold.css"
   ],
   "main": "./dist/index.cjs",
@@ -36,11 +38,19 @@
       "import": "./dist/devtools.js",
       "require": "./dist/devtools.cjs"
     },
+    "./auto": {
+      "types": "./dist/auto.d.ts",
+      "import": "./dist/auto.js",
+      "require": "./dist/auto.cjs"
+    },
+    "./auto.global.js": "./dist/auto.global.js",
+    "./audit.global.js": "./dist/audit.global.js",
     "./css": "./css/fold.css"
   },
   "files": [
     "dist",
-    "css"
+    "css",
+    "bin"
   ],
   "keywords": [
     "javascript",
@@ -68,7 +78,10 @@
     "foldjs"
   ],
   "scripts": {
-    "build": "tsup src/index.ts src/elements.ts src/devtools.ts --format esm,cjs --dts --clean",
+    "build": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsup",
     "prepack": "node -e \"require('fs').copyFileSync('../../README.md','README.md')\""
+  },
+  "bin": {
+    "foldjs": "./bin/foldjs.js"
   }
 }

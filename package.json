@@ -8,10 +8,11 @@
     "packages/vue",
     "packages/svelte",
     "packages/solid",
+    "packages/cli",
     "apps/demo"
   ],
   "scripts": {
-    "build": "npm run build -w foldjs && npm run build -w @foldjs/react -w @foldjs/vue -w @foldjs/svelte -w @foldjs/solid",
+    "build": "npm run build -w foldjs && npm run build -w @foldjs/react -w @foldjs/vue -w @foldjs/svelte -w @foldjs/solid -w @foldjs/cli",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit",
     "dev": "npm run dev -w demo",

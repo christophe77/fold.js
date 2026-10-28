@@ -49,17 +49,17 @@ export function FoldWhen({ posture, children, fallback = null }: FoldWhenProps) 
 
 /** Mounts the foldable simulator. Render it in development only. */
 export function FoldDevtools(props: DevtoolsOptions) {
-  const { position, initial, hingeSize } = props;
+  const { position, initial, hingeSize, highlight } = props;
   useEffect(() => {
     let unmount: (() => void) | undefined;
     let cancelled = false;
     import("foldjs/devtools").then(({ mountDevtools }) => {
-      if (!cancelled) unmount = mountDevtools({ position, initial, hingeSize });
+      if (!cancelled) unmount = mountDevtools({ position, initial, hingeSize, highlight });
     });
     return () => {
       cancelled = true;
       unmount?.();
     };
-  }, [position, initial, hingeSize]);
+  }, [position, initial, hingeSize, highlight]);
   return null;
 }

@@ -62,6 +62,7 @@ export const FoldDevtools = defineComponent({
     position: String as PropType<DevtoolsOptions["position"]>,
     initial: String as PropType<Posture>,
     hingeSize: Number,
+    highlight: { type: Boolean, default: undefined },
   },
   setup(props) {
     let unmount: (() => void) | undefined;

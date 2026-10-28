@@ -1,0 +1,44 @@
+/* Deliberately "classic mobile" styles: full-width, centered, fixed bars. */
+* { box-sizing: border-box; }
+body { margin: 0; font: 16px/1.5 Georgia, "Times New Roman", serif; background: #fbf7f0; color: #2b2118; padding-bottom: 72px; }
+
+.switch {
+  position: fixed; top: 64px; left: 8px; z-index: 50; display: flex; gap: 8px; align-items: center;
+  font: 13px system-ui, sans-serif; background: #111c; color: #fff; padding: 6px 8px; border-radius: 10px;
+}
+.switch a { color: #fff; text-decoration: none; padding: 4px 6px; }
+.switch button { font: inherit; color: inherit; background: #fff2; border: 0; border-radius: 7px; padding: 5px 9px; cursor: pointer; }
+.switch button[aria-pressed="true"] { background: #4ade80; color: #111; }
+
+.site-header {
+  position: sticky; top: 0; z-index: 10; height: 56px; display: flex; align-items: center; justify-content: space-between;
+  padding: 0 8px; background: #7a2e1d; color: #fff;
+}
+.site-title { position: absolute; left: 50%; transform: translateX(-50%); font-size: 20px; font-weight: bold; white-space: nowrap; }
+.icon { background: none; border: 0; color: inherit; font-size: 22px; width: 44px; height: 44px; }
+
+.hero { height: 180px; background: linear-gradient(135deg, #e9a15b, #b6452c 60%, #5b1f14); }
+
+article { padding: 16px 20px 0; }
+article h1 { margin: 0 0 8px; font-size: 28px; column-span: all; }
+article p { margin: 0 0 12px; }
+
+.cta {
+  display: block; width: calc(100% - 40px); margin: 8px 20px 20px; padding: 14px; border: 0; border-radius: 10px;
+  background: #7a2e1d; color: #fff; font: bold 17px system-ui, sans-serif;
+}
+
+.video { display: block; width: calc(100% - 40px); margin: 0 20px 24px; aspect-ratio: 16 / 9; height: auto; border-radius: 10px; background: linear-gradient(135deg, #2b2118, #7a2e1d); }
+
+.bottom-nav {
+  position: fixed; bottom: 0; left: 0; right: 0; height: 60px; display: flex; background: #fff; border-top: 1px solid #e5d9c8; z-index: 10;
+}
+.bottom-nav a { flex: 1; display: grid; place-items: center; color: #7a2e1d; text-decoration: none; font: 600 13px system-ui, sans-serif; }
+
+.modal {
+  position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 40; width: min(90vw, 420px);
+  background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 20px 60px #0005; text-align: center;
+}
+.modal[hidden] { display: none; }
+.modal h2 { margin: 0 0 6px; }
+.modal button { margin-top: 10px; padding: 10px 24px; border: 0; border-radius: 8px; background: #7a2e1d; color: #fff; font: bold 15px system-ui, sans-serif; }

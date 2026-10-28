@@ -119,6 +119,7 @@ export function App() {
               <pre><code>{scene === "frameworks" ? FRAMEWORK_SNIPPET : `<TwoPane\n  primary={<List />}\n  secondary={<Detail />}\n/>`}</code></pre>
               <p className="links">
                 <code>npm i foldjs</code>
+                <a href="legacy.html">Fix an existing site</a>
                 <a href="https://github.com/christophe77/foldjs">GitHub</a>
                 <a href="https://www.npmjs.com/package/foldjs">npm</a>
               </p>

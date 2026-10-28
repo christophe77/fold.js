@@ -7,7 +7,11 @@
 
 **fold.js is an open-source JavaScript library that makes web apps work properly on foldable phones** such as the Samsung Galaxy Z Fold, Google Pixel Fold, Honor Magic V or Microsoft Surface Duo. It detects the hinge and the device posture (flat, book, tabletop), and gives you two-pane layouts that never put content under the hinge. It works with React, Vue, Svelte, Solid, Angular, Astro or plain HTML, weighs about 2 kB, and ships with a built-in foldable simulator so you can build without owning a device.
 
-### [▶ Try the live demo](https://christophe77.github.io/foldjs/) (works on desktop: the simulator is built in)
+### [▶ Try the live demo](https://christophe77.github.io/foldjs/) (works on desktop: the simulator is built in) · [See an existing site fixed in one line](https://christophe77.github.io/foldjs/legacy.html)
+
+```bash
+npx foldjs audit https://your-site.com   # how foldable-ready is your site? Score out of 100 + HTML report
+```
 
 ![fold.js demo switching a web app between flat, book and tabletop postures on a simulated foldable phone](https://raw.githubusercontent.com/christophe77/foldjs/main/docs/demo.gif)
 
@@ -22,7 +26,9 @@ fold.js wraps all of that in one small, framework-agnostic API.
 - 🪟 **Two-pane layouts**: each pane on its own side of the hinge, stacked (or one hidden) on regular phones
 - 📐 **Posture detection**: `flat`, `book` (vertical hinge), `tabletop` (horizontal hinge), `folded`
 - 📏 **Hinge geometry**: exact position and size of the hinge and of each screen segment, in JS and as CSS variables
-- 🧪 **Built-in foldable simulator**: switch postures from a floating panel or with Alt+Shift+F, on any desktop browser
+- 🧪 **Built-in foldable simulator**: switch postures from a floating panel or with Alt+Shift+F, on any desktop browser, with live outlines of everything under the hinge
+- 🔍 **Audit CLI**: `npx foldjs audit <url>` scores any site out of 100 on Galaxy Z Fold and Pixel Fold, with an HTML report, a README badge and a CI mode
+- 🪄 **foldjs/auto**: one script tag retrofits an existing mobile site (modals, tab bars, videos, text columns), no rewrite needed
 - 🧩 **Every framework**: React, Vue, Svelte, Solid adapters, Web Components for everything else, and a CSS-only layer
 - 🪶 **Tiny and safe**: about 2 kB min+gzip, zero dependencies, SSR-safe (Next.js, Nuxt, SvelteKit, Astro), TypeScript types included
 
@@ -147,10 +153,74 @@ mountDevtools({ initial: "book", position: "bottom-right", hingeSize: 24 });
 
 A floating panel lets you switch between **Device / Flat / Book / Tabletop** and draws the simulated hinge on screen. Press **Alt + Shift + F** to cycle postures. In tests, demos or Storybook, drive it from code: `simulate({ posture: "tabletop" })`, then `simulate(null)` to go back to the real device.
 
+The panel also shows a live **foldable score** and outlines every element under the hinge: red for split buttons and form fields, orange for text, modals, fixed elements and videos, yellow for images. Click the score to toggle the outlines and log each issue, with a suggested fix, to the console. Pass `highlight: false` to turn it off.
+
+## Audit any website: `npx foldjs audit`
+
+```bash
+npx foldjs audit https://your-site.com
+```
+
+```
+  64  Samsung Galaxy Z Fold · book      2 critical, 6 warnings
+  94  Samsung Galaxy Z Fold · tabletop  0 critical, 2 warnings
+  67  Google Pixel Fold · book          3 critical, 5 warnings
+  88  Google Pixel Fold · tabletop      2 critical, 0 warnings
+
+  Top issues
+  ● Form field is split by the hinge #searchInput
+  ● Button is split by the hinge header > button.cta
+
+  Foldable score: 78/100
+  Report: ./foldjs-report/report.html
+```
+
+It opens the page in headless Chrome at the real inner-screen sizes of the Samsung Galaxy Z Fold and Google Pixel Fold, in book and tabletop postures, and lists every element under the hinge. The HTML report shows annotated screenshots and a fix for each issue, plus a badge for your README: [![foldable-ready](https://img.shields.io/badge/foldable--ready-100%2F100-brightgreen)](https://github.com/christophe77/foldjs)
+
+| Option | Default | |
+|---|---|---|
+| `--device` | `all` | `galaxy-z-fold`, `pixel-fold` or `all` |
+| `--posture` | `all` | `book`, `tabletop` or `all` |
+| `--out` | `foldjs-report` | Report folder (`report.html` + `report.json`) |
+| `--min-score` | | Exit with code 1 below this score, for CI |
+| `--json` | | Print the result as JSON |
+| `--browser` | auto | Chrome, Edge or Chromium path (or `CHROME_PATH`). No browser is downloaded. |
+
+In CI (GitHub Actions runners ship with Chrome):
+
+```yaml
+- run: npx foldjs audit http://localhost:3000 --min-score 90
+```
+
+The audit checks the first screen of the page. It runs `findHingeCollisions()` from the core, so you can also call it yourself in a browser or in Playwright tests.
+
+## Retrofit an existing site: `foldjs/auto`
+
+One line, no build step, no rewrite:
+
+```html
+<script src="https://unpkg.com/foldjs/dist/auto.global.js"></script>
+```
+
+Or from your bundle: `import { autoFix } from "foldjs/auto"; const undo = autoFix();`
+
+On a foldable (and in the simulator), it applies safe, reversible fixes as inline styles, and removes them as soon as the device is flat again:
+
+| Fix | Automatic | Option |
+|---|---|---|
+| Open dialogs and modals move to a single screen (right screen in book, top half in tabletop) | ✅ | `modals` |
+| Fixed tab bars and toolbars get an empty slot under the hinge, so no item is split | ✅ | `bars` |
+| Videos and iframes stay on one screen (top half in tabletop) | ✅ | `media` |
+| Text blocks flow into two columns around the hinge | add `data-fold-columns` | `columns` |
+| Any element is pushed off the hinge (titles, call-to-action buttons) | add `data-fold-avoid` | `avoid` |
+| An element and its children are never touched | add `data-fold-ignore` | |
+
+Turn a fix off with `autoFix({ bars: false })` or `<script src="…/auto.global.js" data-bars="false">`. [See it on a typical mobile site](https://christophe77.github.io/foldjs/legacy.html): the foldable score goes from 70 to 100 in book posture.
+
 ## Core API
 
 ```ts
-import { getFold, subscribe, simulate, twoPaneLayout, bindTwoPane } from "foldjs";
+import { getFold, subscribe, simulate, twoPaneLayout, bindTwoPane, findHingeCollisions, foldScore } from "foldjs";
 
 getFold();
 // {
@@ -165,11 +235,21 @@ getFold();
 // }
 
 const off = subscribe((state) => console.log(state.posture));
+
+// What sits under the hinge right now (real or simulated)?
+const issues = findHingeCollisions(); // [{ severity, kind, message, suggestion, selector, rect, element }, …]
+foldScore(issues);                    // 0 to 100
 ```
 
 Writing an adapter for another framework? `subscribe` and `getFold` are all you need, and `twoPaneLayout(state)` returns the styles every built-in adapter uses.
 
 ## FAQ
+
+### How do I check if my website works on foldable phones?
+Run `npx foldjs audit https://your-site.com`. It tests the page on the Samsung Galaxy Z Fold and Google Pixel Fold in book and tabletop postures, gives a score out of 100 and an HTML report with screenshots of every element under the hinge. While developing, the fold.js simulator shows the same issues live.
+
+### Can I make an existing mobile site foldable-friendly without rewriting it?
+Yes. Add `<script src="https://unpkg.com/foldjs/dist/auto.global.js"></script>`. It moves modals, tab bars and videos off the hinge automatically, and you can mark text blocks with `data-fold-columns` or elements with `data-fold-avoid` for more. For new screens, `<TwoPane>` gives the best result.
 
 ### How do I detect a foldable phone in JavaScript?
 Call `getFold()` from `foldjs` (or `useFold()` in React and Vue). `isSpanned` tells you whether the viewport is split by a hinge, `posture` tells you how the device is held, and `hinge` gives the hinge rectangle in CSS pixels. Under the hood fold.js reads `window.viewport.segments` and `navigator.devicePosture`, with a fallback for older Edge builds.
@@ -204,11 +284,12 @@ For the web, yes. Those Microsoft packages are archived and rely on the deprecat
 
 | Package | Description |
 |---|---|
-| [`foldjs`](https://www.npmjs.com/package/foldjs) | Core API, CSS layer (`foldjs/css`), Web Components (`foldjs/elements`), simulator (`foldjs/devtools`) |
+| [`foldjs`](https://www.npmjs.com/package/foldjs) | Core API, CSS layer (`foldjs/css`), Web Components (`foldjs/elements`), simulator (`foldjs/devtools`), retrofit script (`foldjs/auto`) |
 | [`@foldjs/react`](https://www.npmjs.com/package/@foldjs/react) | `useFold`, `<TwoPane>`, `<FoldWhen>`, `<FoldDevtools>` |
 | [`@foldjs/vue`](https://www.npmjs.com/package/@foldjs/vue) | `useFold`, `<TwoPane>`, `<FoldWhen>`, `<FoldDevtools>` |
 | [`@foldjs/svelte`](https://www.npmjs.com/package/@foldjs/svelte) | `fold` store, `use:twoPane`, `use:foldWhen` |
 | [`@foldjs/solid`](https://www.npmjs.com/package/@foldjs/solid) | `createFold`, `use:twoPane` |
+| [`@foldjs/cli`](https://www.npmjs.com/package/@foldjs/cli) | `foldjs audit` command (run it with `npx foldjs audit`) |
 
 ## Contributing
 

@@ -1,6 +1,6 @@
 {
   "name": "@foldjs/solid",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "SolidJS primitives for foldable phones: createFold() signal, use:twoPane directive and a built-in foldable simulator.",
   "license": "MIT",
   "author": "christophe77",
@@ -51,7 +51,7 @@
     "foldjs"
   ],
   "peerDependencies": {
-    "foldjs": "^0.1.0",
+    "foldjs": "^0.2.0",
     "solid-js": "^1.6.0"
   },
   "scripts": {

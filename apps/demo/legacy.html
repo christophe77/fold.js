@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Retrofit an existing mobile site for foldables · fold.js</title>
+    <meta name="description" content="A typical mobile website on a foldable phone, before and after foldjs/auto: live hinge collision outlines and a foldable-ready score." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://christophe77.github.io/foldjs/legacy.html" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div class="switch" data-fold-ignore>
+      <a href="./">← fold.js</a>
+      <button id="toggle" aria-pressed="false">foldjs/auto: <strong>off</strong></button>
+    </div>
+
+    <header class="site-header">
+      <button class="icon" aria-label="Menu">☰</button>
+      <span class="site-title" data-fold-avoid>Le Petit Bistro</span>
+      <button class="icon" aria-label="Cart">🛒</button>
+    </header>
+
+    <main>
+      <div class="hero" role="img" aria-label="Dishes on a table"></div>
+
+      <article data-fold-columns>
+        <h1>Seasonal menu</h1>
+        <p>Every week our chef builds a short menu around what the market has to offer. Expect bright vegetables, slow-cooked meats and desserts that change with the fruit of the moment.</p>
+        <p>Book a table online in a few seconds, or order for pickup. We keep a few tables for walk-ins every evening, and the terrace opens as soon as the weather allows it.</p>
+        <p>Allergies or dietary needs? Tell us when you book and the kitchen will adapt your dishes. Our wine list favours small producers from the region.</p>
+      </article>
+
+      <button class="cta" id="book" data-fold-avoid>Book a table</button>
+
+      <video class="video" controls preload="none" aria-label="Kitchen video"></video>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Main">
+      <a href="#">Home</a><a href="#">Menu</a><a href="#">Book</a><a href="#">Offers</a><a href="#">Account</a>
+    </nav>
+
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+      <h2 id="modal-title">Book a table</h2>
+      <p>Tonight, 2 guests, 8:00 pm</p>
+      <button id="confirm">Confirm</button>
+    </div>
+
+    <script type="module" src="/src/legacy.ts"></script>
+  </body>
+</html>

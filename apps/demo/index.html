@@ -73,6 +73,16 @@
                 "@type": "Question",
                 "name": "Which frameworks does fold.js support?",
                 "acceptedAnswer": { "@type": "Answer", "text": "React (including Next.js), Vue (including Nuxt), Svelte (including SvelteKit) and Solid through dedicated adapters, plus Angular, Astro, Lit, htmx and plain HTML through Web Components and a CSS-only layer." }
+              },
+              {
+                "@type": "Question",
+                "name": "How do I check if my website works on foldable phones?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Run npx foldjs audit followed by your URL. It tests the page on Samsung Galaxy Z Fold and Google Pixel Fold in book and tabletop postures, gives a foldable-ready score out of 100 and an HTML report with screenshots of every element under the hinge." }
+              },
+              {
+                "@type": "Question",
+                "name": "Can I make an existing mobile site work on foldable phones without rewriting it?",
+                "acceptedAnswer": { "@type": "Answer", "text": "Yes. Add the foldjs/auto script tag. It moves open modals, fixed tab bars and videos off the hinge automatically, and supports data-fold-columns and data-fold-avoid hints for text and key elements." }
               }
             ]
           }
@@ -100,7 +110,9 @@
           <li>Two-pane layouts: each pane on its own side of the hinge, stacked on regular phones</li>
           <li>Posture detection: flat, book (vertical hinge), tabletop (horizontal hinge), folded</li>
           <li>Hinge geometry in JavaScript and as CSS variables</li>
-          <li>Built-in foldable simulator for desktop browsers (Alt+Shift+F)</li>
+          <li>Built-in foldable simulator for desktop browsers (Alt+Shift+F) with live outlines of elements under the hinge</li>
+          <li>Audit CLI: <code>npx foldjs audit https://your-site.com</code> gives a foldable-ready score out of 100 and an HTML report</li>
+          <li>foldjs/auto: one script tag retrofits an existing mobile site (modals, tab bars, videos, text columns)</li>
           <li>Adapters for React, Vue, Svelte and Solid, Web Components and a CSS-only layer</li>
           <li>About 2 kB min+gzip, zero dependencies, SSR-safe, TypeScript</li>
         </ul>
