@@ -1,13 +1,15 @@
 import { useState } from "react";
 import { FoldDevtools, TwoPane, useFold } from "@foldjs/react";
 import type { Posture } from "@foldjs/react";
+import { FRAMEWORK_SNIPPET, FrameworkCards } from "./frameworks/Frameworks";
 
-type Scene = "mail" | "video" | "map";
+type Scene = "mail" | "video" | "map" | "frameworks";
 
 const SCENES: Array<{ id: Scene; label: string }> = [
   { id: "mail", label: "Mail" },
   { id: "video", label: "Video" },
   { id: "map", label: "Map" },
+  { id: "frameworks", label: "Frameworks" },
 ];
 
 const HINTS: Record<Posture, string> = {
@@ -90,6 +92,16 @@ export function App() {
         </article>
       ),
     },
+    frameworks: {
+      primary: <FrameworkCards />,
+      secondary: (
+        <article className="reader">
+          <h2>One state, every framework</h2>
+          <p>These four cards are rendered by React, Vue, Svelte and plain Web Components, side by side on the same page. They all read the same Fold.js store.</p>
+          <p className="muted">Switch posture in the simulator: they update together.</p>
+        </article>
+      ),
+    },
   }[scene];
 
   return (
@@ -104,7 +116,12 @@ export function App() {
             {scenes.secondary}
             <aside className="hint">
               <p>{HINTS[fold.posture]}</p>
-              <pre><code>{`<TwoPane\n  primary={<List />}\n  secondary={<Detail />}\n/>`}</code></pre>
+              <pre><code>{scene === "frameworks" ? FRAMEWORK_SNIPPET : `<TwoPane\n  primary={<List />}\n  secondary={<Detail />}\n/>`}</code></pre>
+              <p className="links">
+                <code>npm i foldjs</code>
+                <a href="https://github.com/christophe77/foldjs">GitHub</a>
+                <a href="https://www.npmjs.com/package/foldjs">npm</a>
+              </p>
             </aside>
           </section>
         }

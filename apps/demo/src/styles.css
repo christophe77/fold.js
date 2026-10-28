@@ -36,7 +36,7 @@ button { font: inherit; color: inherit; }
 .app { height: 100vh; height: 100dvh; }
 
 .pane { padding: 20px; display: flex; flex-direction: column; gap: 16px; min-height: 100%; }
-.pane-secondary { background: var(--surface); }
+.pane-secondary { background: var(--surface); padding-bottom: 64px; }
 [data-fold-mode="single"] .pane { min-height: auto; }
 
 .hinge-line { height: 100%; width: 100%; background: var(--line); }
@@ -81,3 +81,21 @@ button { font: inherit; color: inherit; }
 .hint { margin-top: auto; border-top: 1px solid var(--line); padding-top: 16px; }
 .hint p { margin: 0 0 10px; color: var(--muted); font-size: 14px; }
 .hint pre { margin: 0; padding: 12px 14px; border-radius: 10px; background: var(--bg); border: 1px solid var(--line); overflow-x: auto; font-size: 13px; }
+
+.links { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; margin-top: 12px !important; }
+.links a { color: var(--accent); font-weight: 600; text-decoration: none; }
+.links a:hover { text-decoration: underline; }
+.links code { background: var(--accent-soft); color: var(--accent); padding: 2px 8px; border-radius: 6px; font-size: 13px; }
+
+.fw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; }
+.fw-host { display: contents; }
+.fw-card { border: 1px solid var(--line); background: var(--surface); border-radius: 14px; padding: 14px; display: flex; flex-direction: column; gap: 6px; }
+.fw-name { display: flex; align-items: center; gap: 8px; font-weight: 600; font-size: 14px; }
+.fw-dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
+.fw-dot.react { background: #58c4dc; }
+.fw-dot.vue { background: #42b883; }
+.fw-dot.svelte { background: #ff3e00; }
+.fw-dot.vanilla { background: #f7df1e; }
+.fw-posture { font-size: 26px; font-weight: 800; letter-spacing: -0.02em; color: var(--accent); }
+.fw-meta { color: var(--muted); font-size: 13px; }
+.fw-card code { font-size: 12px; color: var(--muted); }

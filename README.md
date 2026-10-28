@@ -1,6 +1,14 @@
 # fold.js
 
+[![npm](https://img.shields.io/npm/v/foldjs?color=5b4bff)](https://www.npmjs.com/package/foldjs)
+[![gzip size](https://img.shields.io/bundlejs/size/foldjs?label=gzip)](https://bundlejs.com/?q=foldjs)
+[![license](https://img.shields.io/npm/l/foldjs)](LICENSE)
+
 **Make any web app foldable-ready.** Hinge-aware layouts for foldable phones — in React, Vue, Svelte, Solid, Angular… or plain HTML.
+
+### [▶ Live demo](https://christophe77.github.io/foldjs/) — no foldable needed, the simulator is built in.
+
+![fold.js switching between flat, book and tabletop postures](https://raw.githubusercontent.com/christophe77/foldjs/main/docs/demo.gif)
 
 - 🪟 **Two-pane layouts** that put each pane on its own side of the hinge
 - 📐 **Posture detection**: `flat`, `book`, `tabletop`, `folded`
