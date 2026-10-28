@@ -13,7 +13,7 @@
 npx foldjs audit https://your-site.com   # how foldable-ready is your site? Score out of 100 + HTML report
 ```
 
-![fold.js demo switching a web app between flat, book and tabletop postures on a simulated foldable phone](https://raw.githubusercontent.com/christophe77/foldjs/main/docs/demo.gif)
+![fold.js demo: npx foldjs audit scores a mobile site 83/100, the HTML report outlines elements under the hinge, foldjs/auto fixes the site to 100/100, then a fold.js app switches between book and tabletop postures](https://raw.githubusercontent.com/christophe77/foldjs/main/docs/demo.gif)
 
 ## Why fold.js?
 
@@ -158,20 +158,21 @@ The panel also shows a live **foldable score** and outlines every element under 
 ## Audit any website: `npx foldjs audit`
 
 ```bash
-npx foldjs audit https://your-site.com
+npx foldjs audit https://christophe77.github.io/foldjs/legacy.html
 ```
 
 ```
-  64  Samsung Galaxy Z Fold · book      2 critical, 6 warnings
+  70  Samsung Galaxy Z Fold · book      2 critical, 6 warnings
   94  Samsung Galaxy Z Fold · tabletop  0 critical, 2 warnings
-  67  Google Pixel Fold · book          3 critical, 5 warnings
-  88  Google Pixel Fold · tabletop      2 critical, 0 warnings
+  70  Google Pixel Fold · book          2 critical, 6 warnings
+  97  Google Pixel Fold · tabletop      0 critical, 1 warnings
 
   Top issues
-  ● Form field is split by the hinge #searchInput
-  ● Button is split by the hinge header > button.cta
+  ● Button is split by the hinge #book
+  ● Link is split by the hinge nav.bottom-nav > a:nth-of-type(3)
+  ● Text crosses the hinge main > article > p:nth-of-type(1)
 
-  Foldable score: 78/100
+  Foldable score: 83/100
   Report: ./foldjs-report/report.html
 ```
 
