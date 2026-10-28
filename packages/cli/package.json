@@ -21,7 +21,7 @@
     }
   },
   "bin": {
-    "foldjs-cli": "./dist/cli.js"
+    "foldjs-cli": "dist/cli.js"
   },
   "files": [
     "dist"

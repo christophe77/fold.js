@@ -14,7 +14,21 @@ try {
 if (cli) {
   process.exitCode = await cli(args);
 } else {
-  const npx = process.platform === "win32" ? "npx.cmd" : "npx";
-  const child = spawn(npx, ["-y", "@foldjs/cli", ...args], { stdio: "inherit", shell: process.platform === "win32" });
+  const child = spawn(...delegate(args));
   child.on("exit", (code) => process.exit(code ?? 1));
+}
+
+// Prefer running npm's own script with node: no shell, so URLs with `&` or `?` reach
+// the CLI intact on every platform. npm sets npm_execpath when it runs this bin.
+function delegate(cliArgs) {
+  const npm = process.env.npm_execpath;
+  if (npm && /np[mx]-cli\.js$/.test(npm)) {
+    const npmCli = npm.replace(/npx-cli\.js$/, "npm-cli.js");
+    return [process.execPath, [npmCli, "exec", "--yes", "--package=@foldjs/cli", "--", "foldjs-cli", ...cliArgs], { stdio: "inherit" }];
+  }
+  if (process.platform === "win32") {
+    const quote = (a) => `"${a.replace(/"/g, '\\"')}"`;
+    return ["npx.cmd", ["--yes", "@foldjs/cli", ...cliArgs.map(quote)], { stdio: "inherit", shell: true }];
+  }
+  return ["npx", ["--yes", "@foldjs/cli", ...cliArgs], { stdio: "inherit" }];
 }
