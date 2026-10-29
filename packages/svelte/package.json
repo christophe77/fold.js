@@ -1,6 +1,6 @@
 {
   "name": "@foldjs/svelte",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Svelte store and actions for foldable phones: $fold, use:twoPane, use:foldWhen and a built-in foldable simulator. Works with SvelteKit.",
   "license": "MIT",
   "author": "christophe77",
@@ -52,7 +52,7 @@
     "iphone-fold"
   ],
   "peerDependencies": {
-    "foldjs": "^0.4.0",
+    "foldjs": "^0.4.1",
     "svelte": ">=4"
   },
   "scripts": {

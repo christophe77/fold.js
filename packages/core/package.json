@@ -1,6 +1,6 @@
 {
   "name": "foldjs",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "description": "Make any web app foldable-ready: detect the hinge and posture (book, tabletop) of foldable phones and build two-pane layouts. Framework-agnostic core, CSS layer, Web Components and a built-in foldable simulator.",
   "license": "MIT",
   "author": "christophe77",
