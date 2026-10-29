@@ -39,6 +39,7 @@ button:focus-visible{outline:2px solid #6cf}
 .issues[aria-pressed=true]{background:#fff2;color:inherit}
 .info{opacity:.7;padding:0 6px;font-variant-numeric:tabular-nums}
 @media (max-width:480px){.label{display:none}}
+.panel[data-compact]{flex-wrap:wrap;justify-content:center}.panel[data-compact] .label{display:none}
 `;
 
 /**
@@ -66,6 +67,7 @@ export function mountDevtools(options: DevtoolsOptions = {}): () => void {
   const buttons = Array.from(root.querySelectorAll<HTMLButtonElement>("button[data-id]"));
   const layer = root.querySelector(".layer") as HTMLElement;
   const issues = root.querySelector(".issues") as HTMLButtonElement;
+  const panel = root.querySelector(".panel") as HTMLElement;
   let outline = options.highlight ?? true;
   let frame = 0;
 
@@ -126,6 +128,13 @@ export function mountDevtools(options: DevtoolsOptions = {}): () => void {
     const h = state.simulated ? state.hinge : null;
     hinge.style.display = h ? "block" : "none";
     if (h) Object.assign(hinge.style, { left: `${h.x}px`, top: `${h.y}px`, width: `${h.width}px`, height: `${h.height}px` });
+    // The panel must not sit on the hinge itself: in book posture, keep it inside its own side.
+    const fold = state.hinge;
+    const side = fold && fold.height > fold.width
+      ? panel.dataset.pos!.endsWith("right") ? innerWidth - (fold.x + fold.width) : fold.x
+      : 0;
+    panel.toggleAttribute("data-compact", side > 0);
+    panel.style.maxWidth = side > 0 ? `${side - 24}px` : "";
     scan();
   };
 
