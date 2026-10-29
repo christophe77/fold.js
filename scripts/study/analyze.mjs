@@ -28,6 +28,8 @@ const categoryOf = (name) => Object.entries(CATEGORIES).find(([, hosts]) => host
 
 const sites = [];
 const failed = [];
+// The CLI "rendered" flag is a hint for the run (it triggers a longer retry); blank, still-loading
+// and bot-check pages are confirmed on the screenshots and listed in excluded.json.
 for (const [name, r] of Object.entries(results)) {
   if (r.error || excluded[name]) {
     failed.push({ name, reason: excluded[name] ?? r.error });

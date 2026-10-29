@@ -68,4 +68,31 @@ describe("findHingeCollisions", () => {
     document.getElementById("pane")!.style.overflow = "visible";
     expect(findHingeCollisions({ hinge: fold })).toHaveLength(1);
   });
+
+  it("treats a full-screen \"dialog\" as a page container and still checks its content", () => {
+    Object.defineProperty(window, "innerWidth", { value: 1000, configurable: true });
+    Object.defineProperty(window, "innerHeight", { value: 800, configurable: true });
+    document.body.innerHTML = `<div role="dialog" id="app"><button id="buy">Buy a ticket</button></div>`;
+    box(document.getElementById("app")!, 0, 0, 1000, 800);
+    box(document.getElementById("buy")!, 20, 100, 960, 48);
+    expect(findHingeCollisions({ hinge }).map((c) => c.selector)).toEqual(["#buy"]);
+  });
+
+  it("flags clickable divs (pointer cursor) once, not their children", () => {
+    document.body.innerHTML = `<div id="cta" style="cursor: pointer"><span style="cursor: pointer">Buy</span></div>`;
+    box(document.getElementById("cta")!, 400, 100, 200, 48);
+    box(document.querySelector("span")!, 480, 110, 40, 20);
+    expect(findHingeCollisions({ hinge }).map((c) => [c.kind, c.selector])).toEqual([["interactive", "#cta"]]);
+  });
+
+  it("looks inside open shadow roots", () => {
+    document.body.innerHTML = `<x-card id="host"></x-card>`;
+    const host = document.getElementById("host")!;
+    const button = document.createElement("button");
+    button.textContent = "Inside";
+    host.attachShadow({ mode: "open" }).appendChild(button);
+    box(host, 0, 0, 1000, 100);
+    box(button, 400, 20, 200, 40);
+    expect(findHingeCollisions({ hinge }).map((c) => c.kind)).toEqual(["interactive"]);
+  });
 });

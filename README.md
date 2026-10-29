@@ -7,7 +7,7 @@
 
 **fold.js is an open-source JavaScript library that makes web apps work properly on foldable phones** such as the Samsung Galaxy Z Fold, Google Pixel Fold, Honor Magic V or Microsoft Surface Duo. It detects the hinge and the device posture (flat, book, tabletop), and gives you two-pane layouts that never put content under the hinge. It works with React, Vue, Svelte, Solid, Angular, Astro or plain HTML, weighs about 2 kB, and ships with a built-in foldable simulator so you can build without owning a device.
 
-> 📊 **New study:** [94% of popular websites split a button across a foldable's hinge](https://christophe77.github.io/fold.js/study.html) (79 sites audited on a Galaxy Z Fold, including Google, Amazon and Facebook, plus a run at the leaked iPhone Fold size: 88%).
+> 📊 **New study:** [94% of popular websites split a button across a foldable's hinge](https://christophe77.github.io/fold.js/study.html) (77 sites audited on a Galaxy Z Fold, including Google, Amazon and Facebook, plus a run at the leaked iPhone Fold size: 86%).
 
 ### [▶ Try the live demo](https://christophe77.github.io/fold.js/) (works on desktop: the simulator is built in) · [See an existing site fixed in one line](https://christophe77.github.io/fold.js/legacy.html)
 
@@ -186,7 +186,7 @@ It opens the page in headless Chrome at the real inner-screen sizes of the Samsu
 | `--posture` | `all` | `book`, `tabletop` or `all` |
 | `--out` | `foldjs-report` | Report folder (`report.html` + `report.json`) |
 | `--min-score` | | Exit with code 1 below this score, for CI |
-| `--dismiss-consent` | | Close cookie banners (rejecting when possible) before the audit |
+| `--dismiss-consent` | | Close cookie banners (accepting, like most visitors) before the audit |
 | `--json` | | Print the result as JSON |
 | `--browser` | auto | Chrome, Edge or Chromium path (or `CHROME_PATH`). No browser is downloaded. |
 
@@ -213,13 +213,14 @@ On a foldable (and in the simulator), it applies safe, reversible fixes as inlin
 | Fix | Automatic | Option |
 |---|---|---|
 | Open dialogs and modals move to a single screen (right screen in book, top half in tabletop) | ✅ | `modals` |
+| Cookie and consent banners move to a single screen (OneTrust, Didomi, Axeptio, Cookiebot, Quantcast, Usercentrics, Sourcepoint, tarteaucitron and homemade ones) | ✅ | `consent` |
 | Fixed tab bars and toolbars get an empty slot under the hinge, so no item is split | ✅ | `bars` |
 | Videos and iframes stay on one screen (top half in tabletop) | ✅ | `media` |
 | Text blocks flow into two columns around the hinge | add `data-fold-columns` | `columns` |
 | Any element is pushed off the hinge (titles, call-to-action buttons) | add `data-fold-avoid` | `avoid` |
 | An element and its children are never touched | add `data-fold-ignore` | |
 
-Turn a fix off with `autoFix({ bars: false })` or `<script src="…/auto.global.js" data-bars="false">`. [See it on a typical mobile site](https://christophe77.github.io/fold.js/legacy.html): the foldable score goes from 70 to 100 in book posture.
+Turn a fix off with `autoFix({ bars: false })` or `<script src="…/auto.global.js" data-bars="false">`. [See it on a typical mobile site](https://christophe77.github.io/fold.js/legacy.html): the foldable score goes from 76 to 100 in book posture, cookie banner included.
 
 ## iPhone Fold: the virtual fold
 
@@ -268,7 +269,7 @@ Writing an adapter for another framework? `subscribe` and `getFold` are all you 
 Run `npx foldjs audit https://your-site.com`. It tests the page on the Samsung Galaxy Z Fold and Google Pixel Fold in book and tabletop postures, gives a score out of 100 and an HTML report with screenshots of every element under the hinge. While developing, the fold.js simulator shows the same issues live.
 
 ### Can I make an existing mobile site foldable-friendly without rewriting it?
-Yes. Add `<script src="https://unpkg.com/foldjs/dist/auto.global.js"></script>`. It moves modals, tab bars and videos off the hinge automatically, and you can mark text blocks with `data-fold-columns` or elements with `data-fold-avoid` for more. For new screens, `<TwoPane>` gives the best result.
+Yes. Add `<script src="https://unpkg.com/foldjs/dist/auto.global.js"></script>`. It moves cookie banners, modals, tab bars and videos off the hinge automatically, and you can mark text blocks with `data-fold-columns` or elements with `data-fold-avoid` for more. For new screens, `<TwoPane>` gives the best result.
 
 ### How do I detect a foldable phone in JavaScript?
 Call `getFold()` from `foldjs` (or `useFold()` in React and Vue). `isSpanned` tells you whether the viewport is split by a hinge, `posture` tells you how the device is held, and `hinge` gives the hinge rectangle in CSS pixels. Under the hood fold.js reads `window.viewport.segments` and `navigator.devicePosture`, with a fallback for older Edge builds.

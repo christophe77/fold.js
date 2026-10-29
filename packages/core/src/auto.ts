@@ -12,11 +12,23 @@ export interface AutoFixOptions {
   media?: boolean;
   /** Open a gap at the hinge in fixed navigation bars (bottom tabs, toolbars). Defaults to true. */
   bars?: boolean;
+  /**
+   * Move cookie / consent banners (OneTrust, Didomi, Axeptio, Cookiebot, Quantcast, Usercentrics,
+   * Sourcepoint, Complianz, homemade ones…) to a single screen. Defaults to true.
+   */
+  consent?: boolean;
   /** Space kept between moved content and the hinge or screen edges, in px. Defaults to 16. */
   gutter?: number;
 }
 
 const MODAL = 'dialog[open],[role="dialog"],[role="alertdialog"],[aria-modal="true"]';
+// Containers of the most common consent platforms.
+const CONSENT_PLATFORMS = [
+  "#onetrust-banner-sdk", "#onetrust-pc-sdk", "#didomi-notice", ".didomi-popup-container", "#CybotCookiebotDialog",
+  ".qc-cmp2-summary-section", ".axeptio_widget", "#usercentrics-root", ".cky-consent-container", ".cmplz-cookiebanner",
+  ".cc-window", "#cookie-law-info-bar", '[id^="sp_message_container"]', "#tarteaucitronAlertBig", "#cookiebanner", "#cookie-banner",
+].join(",");
+const CONSENT_WORDS = /cookie|consent|rgpd|gdpr|confidentialit|privacy|vie priv/i;
 const WATCHED = ["open", "class", "hidden", "role", "aria-modal", "data-fold-avoid", "data-fold-columns"];
 
 /**
@@ -27,7 +39,7 @@ const WATCHED = ["open", "class", "hidden", "role", "aria-modal", "data-fold-avo
  */
 export function autoFix(options: AutoFixOptions = {}): () => void {
   if (typeof document === "undefined") return () => {};
-  const opts = { modals: true, avoid: true, columns: true, media: true, bars: true, gutter: 16, ...options };
+  const opts = { modals: true, avoid: true, columns: true, media: true, bars: true, consent: true, gutter: 16, ...options };
   const g = opts.gutter;
   const originals = new Map<HTMLElement, Record<string, string>>();
 
@@ -115,6 +127,18 @@ export function autoFix(options: AutoFixOptions = {}): () => void {
     items.forEach((item, i) => set(item, "grid-column", String(i < left ? i + 1 : i + 2)));
   };
 
+  // Known platforms, plus any fixed element that talks about cookies and offers a button
+  // (homemade banners). Only the outermost match is moved.
+  const consentBanners = (all: (selector: string) => HTMLElement[]) => {
+    // Banners live near the top of the tree; scanning two levels keeps this cheap on big pages.
+    const fixed = all("body > *, body > * > *").filter((el) => {
+      const s = getComputedStyle(el);
+      return (s.position === "fixed" || s.position === "sticky") && el.querySelector("button, [role=button], a") && CONSENT_WORDS.test(el.textContent ?? "");
+    });
+    const found = [...all(CONSENT_PLATFORMS), ...fixed];
+    return found.filter((el, i) => found.findIndex((other) => other !== el && other.contains(el)) === -1 && found.indexOf(el) === i);
+  };
+
   const isBar = (el: HTMLElement) => {
     const s = getComputedStyle(el);
     return (s.position === "fixed" || s.position === "sticky") && (s.display === "flex" || s.display === "inline-flex");
@@ -132,7 +156,9 @@ export function autoFix(options: AutoFixOptions = {}): () => void {
     if (opts.media && state.spanning === "rows") all("video, iframe").forEach((el) => fitMedia(el, state));
     if (opts.media && state.spanning === "columns") all("video, iframe").forEach((el) => moveToSegment(el, state, false));
     if (opts.bars && state.spanning === "columns") all('nav, [role="navigation"], [role="tablist"]').filter(isBar).forEach((el) => splitBar(el, h));
-    if (opts.modals) all(MODAL).forEach((el) => moveToSegment(el, state, true));
+    // Book: the right screen, like modals. Tabletop: whichever half holds most of the banner (usually the bottom).
+    if (opts.consent) consentBanners(all).forEach((el) => moveToSegment(el, state, state.spanning === "columns"));
+    if (opts.modals) all(MODAL).filter((el) => !originals.has(el)).forEach((el) => moveToSegment(el, state, true));
     if (opts.avoid) all("[data-fold-avoid]").forEach((el) => moveToSegment(el, state, false));
   };
 

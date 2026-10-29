@@ -22,6 +22,7 @@ function setAuto(on: boolean) {
 toggle.addEventListener("click", () => setAuto(!stop));
 document.getElementById("book")!.addEventListener("click", () => (modal.hidden = false));
 document.getElementById("confirm")!.addEventListener("click", () => (modal.hidden = true));
+document.querySelectorAll("[data-close-cookies]").forEach((b) => b.addEventListener("click", () => document.getElementById("cookies")!.remove()));
 
 // The modal starts open so its position is visible right away.
 modal.hidden = new URLSearchParams(location.search).get("modal") === "0";

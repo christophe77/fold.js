@@ -42,3 +42,12 @@ article p { margin: 0 0 12px; }
 .modal[hidden] { display: none; }
 .modal h2 { margin: 0 0 6px; }
 .modal button { margin-top: 10px; padding: 10px 24px; border: 0; border-radius: 8px; background: #7a2e1d; color: #fff; font: bold 15px system-ui, sans-serif; }
+
+.cookie-banner {
+  position: fixed; left: 0; right: 0; bottom: 60px; z-index: 30; padding: 14px 16px; background: #2b2118; color: #fbf7f0;
+  font: 14px/1.4 system-ui, sans-serif; display: flex; gap: 12px; align-items: center; flex-wrap: wrap; justify-content: center; text-align: center;
+}
+.cookie-banner p { margin: 0; max-width: 520px; }
+.cookie-actions { display: flex; gap: 8px; }
+.cookie-actions button { font: inherit; border: 1px solid #fbf7f0; background: none; color: inherit; border-radius: 8px; padding: 8px 14px; }
+.cookie-actions button.primary { background: #fbf7f0; color: #2b2118; }

@@ -8,6 +8,7 @@
   "expedia.com": "bot check",
   "fnac.com": "bot check",
   "forbes.com": "bot check",
+  "hm.com": "access denied page",
   "imdb.com": "bot check",
   "leboncoin.fr": "bot check",
   "leroymerlin.fr": "bot check",
@@ -18,6 +19,7 @@
   "target.com": "bot check",
   "tripadvisor.com": "bot check",
   "wordpress.com": "bot check",
-  "zara.com": "country selection page",
-  "zillow.com": "blank page"
+  "wwws.airfrance.fr": "page still loading (skeleton) after two attempts",
+  "zillow.com": "blank page",
+  "walmart.com": "bot check (Robot or human?)"
 }

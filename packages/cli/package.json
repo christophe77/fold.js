@@ -1,6 +1,6 @@
 {
   "name": "@foldjs/cli",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "description": "Audit any website for foldable phones: finds elements under the hinge in book and tabletop postures, scores the page out of 100 and writes an HTML report with screenshots.",
   "license": "MIT",
   "author": "christophe77",
@@ -46,7 +46,7 @@
     "iphone-fold"
   ],
   "dependencies": {
-    "foldjs": "^0.3.0",
+    "foldjs": "^0.4.0",
     "puppeteer-core": "^23.11.1"
   },
   "scripts": {

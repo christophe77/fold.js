@@ -15,6 +15,7 @@ const options: AutoFixOptions = {
   columns: flag(data.columns),
   media: flag(data.media),
   bars: flag(data.bars),
+  consent: flag(data.consent),
   gutter: data.gutter ? Number(data.gutter) : undefined,
 };
 for (const key of Object.keys(options) as Array<keyof AutoFixOptions>) if (options[key] === undefined) delete options[key];

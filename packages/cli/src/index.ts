@@ -24,7 +24,7 @@ Options
   --out <dir>         report folder (default: ./foldjs-report)
   --min-score <n>     exit with code 1 if the score is below n (for CI)
   --json              print the result as JSON instead of the summary
-  --dismiss-consent   close cookie banners (rejecting when possible) before the audit
+  --dismiss-consent   close cookie banners (accepting, like most visitors) before the audit
   --browser <path>    Chrome, Edge or Chromium executable (or set CHROME_PATH)
   --wait <ms>         extra wait after load and posture change (default: 600)
   --timeout <ms>      page load timeout (default: 45000)
@@ -142,6 +142,9 @@ function printSummary(result: AuditResult, outDir: string) {
     const crit = s.issues.filter((i) => i.severity === "critical").length;
     const warn = s.issues.filter((i) => i.severity === "warning").length;
     console.log(`  ${colorScore(s.score).padStart(tty ? 12 : 3)}  ${s.device.name} · ${s.posture}  ${dim(`${crit} critical, ${warn} warnings`)}`);
+  }
+  if (result.scenarios.some((s) => !s.rendered)) {
+    console.log(yellow("\n  ⚠ The page still looked empty (blank, loading or blocked). The score may be too high: check the report screenshots, or retry with --wait 4000."));
   }
 
   const seen = new Map<string, { message: string; suggestion: string; severity: string }>();

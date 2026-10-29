@@ -17,7 +17,9 @@ const here = dirname(fileURLToPath(import.meta.url));
 const sites = JSON.parse(readFileSync(join(here, "sites.json"), "utf8"));
 const arg = (name) => (process.argv.includes(name) ? process.argv[process.argv.indexOf(name) + 1] : null);
 const deviceId = arg("--device") ?? "galaxy-z-fold";
-const suffix = deviceId === "galaxy-z-fold" ? "" : `-${deviceId}`;
+// --no-dismiss: visit as a normal first-time visitor, cookie banners included.
+const dismissConsent = !process.argv.includes("--no-dismiss");
+const suffix = (deviceId === "galaxy-z-fold" ? "" : `-${deviceId}`) + (dismissConsent ? "" : "-with-banners");
 const resultsFile = join(here, `results${suffix}.json`);
 const shots = join(here, `shots${suffix}`);
 mkdirSync(shots, { recursive: true });
@@ -37,9 +39,16 @@ async function worker() {
   for (let url = queue.shift(); url; url = queue.shift()) {
     const name = host(url);
     try {
-      const run = () => audit(url, { browser, devices: [device], postures: ["book", "tabletop"], wait: 1500, timeout: 25000, dismissConsent: true });
+      // A hung browser (no CDP answer) must not block the whole run: give up after 5 minutes.
+      const run = (wait) => () =>
+        Promise.race([
+          audit(url, { browser, devices: [device], postures: ["book", "tabletop"], wait, timeout: 25000, dismissConsent }),
+          new Promise((_, reject) => setTimeout(() => reject(new Error("hung for 5 minutes")), 300000)),
+        ]);
       // Some sites redirect right after load (consent, geo): one retry.
-      const r = await run().catch(run);
+      let r = await run(1500)().catch(run(2500)).catch(run(2500));
+      // Slow single-page apps: one more try with a longer wait before giving up.
+      if (r.scenarios.some((s) => !s.rendered)) r = await run(4000)().catch(() => r);
       for (const s of r.scenarios) writeFileSync(join(shots, `${name}.${s.posture}.jpg`), Buffer.from(s.screenshot, "base64"));
       results[name] = {
         url,
@@ -48,6 +57,7 @@ async function worker() {
           posture: s.posture,
           score: s.score,
           consentDismissed: s.consentDismissed,
+          rendered: s.rendered,
           issues: s.issues.map(({ kind, severity, message, selector, text }) => ({ kind, severity, message, selector, text })),
         })),
       };
@@ -61,3 +71,5 @@ async function worker() {
 
 await Promise.all(Array.from({ length: 4 }, worker));
 console.log("done");
+// A hung browser keeps the event loop alive: exit so a chained run can start.
+process.exit(0);

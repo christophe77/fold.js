@@ -57,4 +57,15 @@ describe("autoFix", () => {
     stop = autoFix();
     expect(modal.style.translate).toBe("");
   });
+
+  it("moves a homemade cookie banner to the right screen", () => {
+    document.body.innerHTML = `<div id="cookies" style="position: fixed">We use cookies. <button>Accept</button></div>`;
+    const banner = document.getElementById("cookies")!;
+    layout(banner, 0, 600, 1000, 200);
+    simulate({ posture: "book", hingeSize: 20 });
+    stop = autoFix();
+    // Narrowed to the right segment (490 - 2 × 16 = 458px) and centered in it.
+    expect(banner.style.maxWidth).toBe("458px");
+    expect(banner.style.translate).toBe("255px 0px");
+  });
 });

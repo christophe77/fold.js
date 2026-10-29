@@ -56,78 +56,87 @@ export function findHingeCollisions(options: FindCollisionsOptions = {}): Collis
   const found: Collision[] = [];
   const reported = new Set<Element>();
 
-  const walker = document.createTreeWalker(root, NodeFilter.SHOW_ELEMENT, {
-    acceptNode(node) {
+  // The document, then every open shadow root met on the way (web components).
+  const roots: Node[] = [root];
+  let n = 0;
+
+  for (let current = roots.shift(); current && n < max; current = roots.shift()) {
+    const walker = document.createTreeWalker(current, NodeFilter.SHOW_ELEMENT, {
+      acceptNode(node) {
+        const el = node as Element;
+        if (SKIP.has(el.tagName) || el.hasAttribute("data-fold-ignore")) return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      },
+    });
+
+    // Subtrees already covered by a single issue (a split button, a modal).
+    let covered: Element | null = null;
+
+    for (let node = walker.nextNode(); node && n < max; n++, node = walker.nextNode()) {
       const el = node as Element;
-      if (SKIP.has(el.tagName) || el.hasAttribute("data-fold-ignore")) return NodeFilter.FILTER_REJECT;
-      return NodeFilter.FILTER_ACCEPT;
-    },
-  });
+      if (el.shadowRoot) roots.push(el.shadowRoot);
+      if (covered && covered.contains(el)) continue;
+      covered = null;
 
-  // Subtrees already covered by a single issue (a split button, a modal).
-  let covered: Element | null = null;
+      const box = el.getBoundingClientRect();
+      if (box.width < 1 || box.height < 1 || !intersects(box, zone)) continue;
+      // Only the part left visible by scrolling / overflow-hidden ancestors counts.
+      const r = clipToAncestors(el, box);
+      if (!r || !intersects(r, zone)) continue;
 
-  for (let n = 0, node = walker.nextNode(); node && n < max; n++, node = walker.nextNode()) {
-    const el = node as Element;
-    if (covered && covered.contains(el)) continue;
-    covered = null;
+      const style = getComputedStyle(el);
+      if (style.visibility === "hidden" || style.opacity === "0") continue;
+      if (hiddenByAncestor(el) || isOccluded(el, r, zone)) continue;
 
-    const box = el.getBoundingClientRect();
-    if (box.width < 1 || box.height < 1 || !intersects(box, zone)) continue;
-    // Only the part left visible by scrolling / overflow-hidden ancestors counts.
-    const r = clipToAncestors(el, box);
-    if (!r || !intersects(r, zone)) continue;
+      const add = (kind: CollisionKind, severity: Severity, message: string, suggestion: string) => {
+        if (reported.has(el)) return;
+        reported.add(el);
+        found.push({ element: el, kind, severity, message, suggestion, rect: toRect(r), selector: selectorFor(el) });
+      };
 
-    const style = getComputedStyle(el);
-    if (style.visibility === "hidden" || style.opacity === "0") continue;
+      // Some apps mark their whole page as a dialog: treat a near-full-screen "modal" as a plain container.
+      if (el.matches(MODAL) && r.width * r.height < viewportArea * 0.8) {
+        add("modal", "warning", "Modal is centered on the hinge", "Show it on one screen: wrap the page in <TwoPane> or load foldjs/auto, which moves open dialogs to a single segment.");
+        covered = el;
+        continue;
+      }
 
-    const add = (kind: CollisionKind, severity: Severity, message: string, suggestion: string) => {
-      if (reported.has(el)) return;
-      reported.add(el);
-      found.push({ element: el, kind, severity, message, suggestion, rect: toRect(r), selector: selectorFor(el) });
-    };
+      if (el.matches(INTERACTIVE) || isClickable(el, style, r, viewportArea)) {
+        add("interactive", "critical", `${label(el)} is split by the hinge`, "Keep controls inside one segment: use <TwoPane> or give this element data-fold-avoid with foldjs/auto.");
+        covered = el;
+        continue;
+      }
 
-    if (el.matches(MODAL)) {
-      add("modal", "warning", "Modal is centered on the hinge", "Show it on one screen: wrap the page in <TwoPane> or load foldjs/auto, which moves open dialogs to a single segment.");
-      covered = el;
-      continue;
-    }
+      // Full-width bars are fine: only their content matters, and it is checked on its own.
+      const spansAxis = vertical ? r.width >= window.innerWidth * 0.9 : r.height >= window.innerHeight * 0.9;
+      if ((style.position === "fixed" || style.position === "sticky") && !spansAxis) {
+        add("fixed", "warning", `${style.position === "fixed" ? "Fixed" : "Sticky"} element overlaps the hinge`, vertical
+          ? "Center its content within one segment or split it with the --fold-hinge-width variable."
+          : "Move it to the top or bottom edge, away from the fold.");
+        // Keep walking: its text and buttons are reported on their own.
+      }
 
-    if (el.matches(INTERACTIVE)) {
-      add("interactive", "critical", `${label(el)} is split by the hinge`, "Keep controls inside one segment: use <TwoPane> or give this element data-fold-avoid with foldjs/auto.");
-      covered = el;
-      continue;
-    }
+      if (/^(VIDEO|IFRAME|CANVAS|OBJECT|EMBED)$/.test(el.tagName)) {
+        add("media", "warning", `${el.tagName.toLowerCase()} is cut in half by the hinge`, vertical
+          ? "Place media in a single pane with <TwoPane>."
+          : "In tabletop posture keep media in the top segment (foldjs/auto does it for <video> and <iframe>).");
+        continue;
+      }
 
-    // Full-width bars are fine: only their content matters, and it is checked on its own.
-    const spansAxis = vertical ? r.width >= window.innerWidth * 0.9 : r.height >= window.innerHeight * 0.9;
-    if ((style.position === "fixed" || style.position === "sticky") && !spansAxis) {
-      add("fixed", "warning", `${style.position === "fixed" ? "Fixed" : "Sticky"} element overlaps the hinge`, vertical
-        ? "Center its content within one segment or split it with the --fold-hinge-width variable."
-        : "Move it to the top or bottom edge, away from the fold.");
-      // Keep walking: its text and buttons are reported on their own.
-    }
+      if (/^(IMG|SVG|PICTURE)$/i.test(el.tagName)) {
+        if (r.width * r.height > viewportArea * 0.05) add("media", "minor", "Image crosses the hinge", "Usually fine for backgrounds; keep faces and text in images away from the fold.");
+        continue;
+      }
 
-    if (/^(VIDEO|IFRAME|CANVAS|OBJECT|EMBED)$/.test(el.tagName)) {
-      add("media", "warning", `${el.tagName.toLowerCase()} is cut in half by the hinge`, vertical
-        ? "Place media in a single pane with <TwoPane>."
-        : "In tabletop posture keep media in the top segment (foldjs/auto does it for <video> and <iframe>).");
-      continue;
-    }
+      if (vertical && /(auto|scroll)/.test(style.overflowX) && el.scrollWidth > el.clientWidth + 1) {
+        add("scroller", "warning", "Horizontal carousel crosses the hinge", "Snap items to segment widths (--fold-segment-0-width) or keep the carousel in one pane.");
+      }
 
-    if (/^(IMG|SVG|PICTURE)$/i.test(el.tagName)) {
-      if (r.width * r.height > viewportArea * 0.05) add("media", "minor", "Image crosses the hinge", "Usually fine for backgrounds; keep faces and text in images away from the fold.");
-      continue;
-    }
-
-    if (vertical && /(auto|scroll)/.test(style.overflowX) && el.scrollWidth > el.clientWidth + 1) {
-      add("scroller", "warning", "Horizontal carousel crosses the hinge", "Snap items to segment widths (--fold-segment-0-width) or keep the carousel in one pane.");
-    }
-
-    if (textCrosses(el, zone, r)) {
-      add("text", "warning", "Text crosses the hinge", vertical
-        ? "Lay content out in two columns around the hinge: <TwoPane>, the fold-two-pane class, or data-fold-columns with foldjs/auto."
-        : "Avoid text on the fold line in tabletop posture; split content between the two halves.");
+      if (textCrosses(el, zone, r)) {
+        add("text", "warning", "Text crosses the hinge", vertical
+          ? "Lay content out in two columns around the hinge: <TwoPane>, the fold-two-pane class, or data-fold-columns with foldjs/auto."
+          : "Avoid text on the fold line in tabletop posture; split content between the two halves.");
+      }
     }
   }
 
@@ -234,6 +243,37 @@ function clipToAncestors(el: Element, box: Box): Box | null {
     visible = intersection(visible, p.getBoundingClientRect());
   }
   return visible;
+}
+
+// Tooltips and menus are often kept in the page but faded out on a parent.
+function hiddenByAncestor(el: Element): boolean {
+  for (let p = el.parentElement; p && p !== document.body; p = p.parentElement) {
+    const s = getComputedStyle(p);
+    if (s.opacity === "0" || s.clipPath === "inset(50%)") return true;
+  }
+  return false;
+}
+
+// Something else is drawn on top at the fold (an overlay, a sticky bar, another layer of
+// stacked hidden cards): the element is not what the user sees there.
+function isOccluded(el: Element, r: Box, zone: Rect): boolean {
+  const root = el.getRootNode() as Document | ShadowRoot;
+  if (typeof root.elementFromPoint !== "function") return false;
+  const x = Math.min(Math.max(zone.x + zone.width / 2, r.left + 1), r.right - 1);
+  const y = Math.min(Math.max(r.top + r.height / 2, zone.y), zone.y + zone.height);
+  const top = root.elementFromPoint(x, y);
+  if (!top) return false;
+  return top !== el && !el.contains(top) && !top.contains(el);
+}
+
+// A div or span wired up with a click handler: the browser shows a pointer cursor on it.
+// Only the outermost element counts (the cursor is inherited by its children), and
+// large clickable areas such as whole cards are left to the text and media checks.
+function isClickable(el: Element, style: CSSStyleDeclaration, r: Box, viewportArea: number): boolean {
+  if (style.cursor !== "pointer" || r.width * r.height > viewportArea * 0.25) return false;
+  const parent = el.parentElement;
+  if (parent && getComputedStyle(parent).cursor === "pointer") return false;
+  return !!el.textContent?.trim() || !!el.querySelector("svg, img");
 }
 
 function label(el: Element): string {
