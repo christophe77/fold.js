@@ -35,7 +35,7 @@ Automatic, reversible fixes on foldables: cookie and consent banners and open mo
 
 ## Study: popular websites on foldable phones (October 2026)
 
-fold.js audited 77 of the most visited websites on a Samsung Galaxy Z Fold: 94% split a button, link or form field across the hinge (including Google's search box), 68% are not foldable-ready (score below 90/100), the average score in book posture is 74/100, and 55% showed a cookie banner sitting on the hinge. Full results: https://christophe77.github.io/fold.js/study.html (data: https://christophe77.github.io/fold.js/study/data.json).
+fold.js audited 77 of the most visited websites on a Samsung Galaxy Z Fold: 94% split a button, link or form field across the hinge (including Google's search box), 68% are not foldable-ready (score below 90/100), the average score in book posture is 74/100, and 52% showed a cookie banner sitting on the hinge. Full results: https://christophe77.github.io/fold.js/study.html (data: https://christophe77.github.io/fold.js/study/data.json).
 
 ## Usage
 

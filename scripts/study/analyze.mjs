@@ -80,13 +80,21 @@ const KIND_LABELS = {
 
 // First pass, without closing consent banners: how often does the banner itself sit on the hinge?
 const rawFile = join(here, "results-with-banners.json");
-const BANNER = /cookie|consent|privacy|confidentialit|vie priv|données|accepter|refuser|accept all|reject/i;
+// Words like "données" or "vie privée" alone also match slogans and fine print: keep to consent wording.
+const BANNER = /cookie|consent|privacy|confidentialit|accepter|refuser|accept all|reject/i;
+// The accept or reject button itself split by the hinge (not a policy link).
+const CHOICE = /^(tout )?(accept|refus|reject|autoriser|allow)|^continuer sans|^accepter/i;
 let bannerOnHinge = null;
 if (existsSync(rawFile)) {
   const raw = JSON.parse(readFileSync(rawFile, "utf8"));
   const audited = sites.filter((x) => raw[x.name] && !raw[x.name].error);
-  const hit = audited.filter((x) => raw[x.name].scenarios.find((sc) => sc.posture === "book").issues.some((i) => BANNER.test(i.text)));
-  bannerOnHinge = { percent: Math.round((hit.length / audited.length) * 100), sites: hit.length, of: audited.length };
+  const book = (x) => raw[x.name].scenarios.find((sc) => sc.posture === "book").issues;
+  const hit = audited.filter((x) => book(x).some((i) => BANNER.test(i.text)));
+  const button = audited.filter((x) => book(x).some((i) => i.severity === "critical" && CHOICE.test(i.text)));
+  bannerOnHinge = {
+    percent: Math.round((hit.length / audited.length) * 100), sites: hit.length, of: audited.length,
+    buttonPercent: Math.round((button.length / audited.length) * 100), buttonSites: button.map((x) => x.name),
+  };
 }
 
 const summary = {

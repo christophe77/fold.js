@@ -13,9 +13,28 @@
   "perfect": 0,
   "consentBanners": 87,
   "bannerOnHinge": {
-   "percent": 55,
-   "sites": 42,
-   "of": 77
+   "percent": 52,
+   "sites": 40,
+   "of": 77,
+   "buttonPercent": 21,
+   "buttonSites": [
+    "temu.com",
+    "aliexpress.com",
+    "x.com",
+    "deezer.com",
+    "wired.com",
+    "paypal.com",
+    "pinterest.com",
+    "stripe.com",
+    "samsung.com",
+    "instagram.com",
+    "bing.com",
+    "microsoft.com",
+    "nike.com",
+    "lemonde.fr",
+    "ouest-france.fr",
+    "laposte.fr"
+   ]
   },
   "buckets": [
    {

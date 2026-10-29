@@ -69,7 +69,7 @@
         <div class="kpi"><b id="kpi-critical">94%</b><span>split a button, link or form field with the hinge</span></div>
         <div class="kpi"><b id="kpi-failing">68%</b><span>are not foldable-ready (score below 90/100)</span></div>
         <div class="kpi"><b id="kpi-book">74</b><span>average score out of 100 in book posture</span></div>
-        <div class="kpi"><b id="kpi-banner">55%</b><span>showed a cookie banner sitting on the hinge</span></div>
+        <div class="kpi"><b id="kpi-banner">52%</b><span>showed a cookie banner sitting on the hinge</span></div>
       </section>
 
       <h2>Scores are mediocre across the board</h2>
@@ -146,7 +146,7 @@ npx foldjs audit https://your-site.com --device iphone-fold</code></pre>
         <li>Device: Samsung Galaxy Z Fold inner screen, 690×829 CSS pixels in book posture and 829×690 in tabletop posture, with a zero-width fold line as on real devices.</li>
         <li>What is checked: the first screen of each home page. An issue is an element whose visible part crosses the fold line: buttons, links and fields, but also clickable elements without proper markup and controls inside web components. Elements hidden or covered by something else do not count, and pages that had not finished rendering after a second, longer attempt are left out. Split buttons, links and form fields are critical; text, modals, floating elements, videos and carousels are warnings; images are minor.</li>
         <li>Score: 100 minus 6 per critical issue, 3 per warning and 1 per minor issue, per posture; the site score is the average of both postures. 90 and above counts as foldable-ready.</li>
-        <li>Cookie banners: a first pass was run as a normal visitor (that is where the 55% figure comes from). The results above come from a second pass where the audit closed consent banners automatically, accepting as most visitors do (on "pay or accept" sites, rejecting only leads to a subscription wall). A few banners could not be closed and are part of the result.</li>
+        <li>Cookie banners: a first pass was run as a normal visitor (that is where the 52% figure comes from; on 21% of sites the accept or reject button itself is split). The results above come from a second pass where the audit closed consent banners automatically, accepting as most visitors do (on "pay or accept" sites, rejecting only leads to a subscription wall). A few banners could not be closed and are part of the result.</li>
         <li>Sites list: 100 of the most visited global and French websites. <span id="failed">23 sites showed a bot check, an access denied page, a country selection page or a page that never finished loading instead of the real site, and are left out. Every exclusion was checked on the screenshots.</span></li>
         <li>iPhone Fold: same sites and settings at 904×640 CSS pixels with an iPhone user agent, from leaked specs (7.76", 2713×1920 pixels, @3x assumed). The page still renders in Chrome, not Safari. One more site (PayPal) showed a bot check and is left out of this part.</li>
         <li>Limits: scores reflect one moment, one location and one device size. Sites change often; run the audit yourself to check today's result.</li>
